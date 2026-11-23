@@ -9,7 +9,7 @@ interface HeroSectionProps {
 export function HeroSection({ whatsapp }: HeroSectionProps) {
   const inquiryUrl = buildWhatsappUrl(
     whatsapp,
-    'السلام عليكم، أرغب بالاستفسار عن العسل المتوفر.'
+    'السلام عليكم، أود الطلب من مناحل آمنة عبد الكريم بالمدينة المنورة.'
   );
 
   return (
@@ -20,7 +20,7 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
           <div className="lg:col-span-7 flex flex-col justify-between space-y-8 text-right py-2">
             <div className="space-y-5">
               <p className="text-xs sm:text-sm font-bold text-honeyGold tracking-wide">
-                رعاية يدوية أمينة · فرز طبيعي · المدينة المنورة
+                مناحل بلدية مرخصة · عسل طبيعي 100% أو استرداد المبلغ · المدينة المنورة
               </p>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-emeraldDeep leading-[1.2] max-w-2xl">
@@ -30,31 +30,33 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
               <p className="text-base sm:text-lg text-inkMuted leading-relaxed max-w-2xl">
                 تُشرف النحّالة{' '}
                 <strong className="text-emeraldDeep font-bold">آمنة عبد الكريم</strong>{' '}
-                بنفسها على خلايا النحل في المدينة المنورة، وتتابع مواسم التزهير، وتعتني
-                بالخلايا والفرز بكل إتقان وتفانٍ، لتقدم لكم عسل{' '}
-                <span className="text-emeraldDeep font-bold">السدرة</span> و
-                <span className="text-emeraldDeep font-bold">الطلح</span> و
-                <span className="text-emeraldDeep font-bold">السمرة</span> بجودة تليق
-                بضيوف المدينة وأهلها.
+                بنفسها على خلايا النحل في المدينة المنورة بترخيص معتمد من وزارة البيئة
+                والمياه والزراعة، لتقدم لكم{' '}
+                <span className="text-emeraldDeep font-bold">
+                  عسل سدرة المدينة المنورة
+                </span>{' '}
+                و<span className="text-emeraldDeep font-bold">عسل طلح أصلي</span> و
+                <span className="text-emeraldDeep font-bold">عسل سمرة طبيعي</span> بجودة
+                تليق بضيوف المدينة وأهلها.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <a
-                  href="#products"
-                  className="inline-flex items-center gap-2.5 min-h-[46px] px-7 py-3 rounded-2xl bg-gradient-to-l from-honeyGold to-honeyLight text-emeraldDeep font-extrabold text-sm sm:text-base shadow-goldGlow hover:-translate-y-0.5 transition whitespace-nowrap"
-                >
-                  <span>تصفح واطلب العسل الآن</span>
-                  <ArrowLeft className="w-4 h-4 shrink-0" />
-                </a>
-
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 pt-2">
                 <a
                   href={inquiryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 min-h-[46px] px-6 py-3 rounded-2xl bg-white border border-emeraldDeep/15 text-emeraldDeep font-bold text-sm sm:text-base hover:border-honeyGold transition whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 min-h-[48px] px-7 py-3 rounded-2xl bg-[#128C7E] hover:bg-[#0e7468] text-white font-extrabold text-sm sm:text-base shadow-md transition whitespace-nowrap"
                 >
-                  <MessageCircle className="w-4 h-4 text-honeyGold shrink-0" />
-                  <span>تواصل واتساب</span>
+                  <MessageCircle className="w-5 h-5 shrink-0" />
+                  <span>اطلب عبر واتساب الآن</span>
+                </a>
+
+                <a
+                  href="#products"
+                  className="inline-flex items-center justify-center gap-2.5 min-h-[48px] px-7 py-3 rounded-2xl bg-gradient-to-l from-honeyGold to-honeyLight text-emeraldDeep font-extrabold text-sm sm:text-base shadow-goldGlow hover:-translate-y-0.5 transition whitespace-nowrap"
+                >
+                  <span>تصفح العسل والأسعار</span>
+                  <ArrowLeft className="w-4 h-4 shrink-0" />
                 </a>
               </div>
             </div>
@@ -62,33 +64,39 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
             {/* Clean Hairline-Separated Proof Strip */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-emeraldDeep/10 max-w-2xl">
               <div>
-                <div className="tabular-nums text-xl sm:text-2xl font-extrabold text-emeraldDeep">
-                  3 أنواع
+                <div className="tabular-nums text-lg sm:text-2xl font-extrabold text-emeraldDeep">
+                  طبيعي 100%
                 </div>
-                <div className="text-xs text-inkMuted mt-1">سدرة · طلح · سمرة</div>
+                <div className="text-xs text-inkMuted mt-1">أو استرداد المبلغ</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-emeraldDeep">
+                <div className="text-lg sm:text-2xl font-extrabold text-emeraldDeep">
                   توصيل فوري
                 </div>
-                <div className="text-xs text-inkMuted mt-1">داخل المدينة المنورة</div>
+                <div className="text-xs text-inkMuted mt-1">
+                  ودفع عند الاستلام بالمدينة
+                </div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-emeraldDeep">
-                  عناية مباشرة
+                <div className="text-lg sm:text-2xl font-extrabold text-emeraldDeep">
+                  ترخيص رسمي
                 </div>
-                <div className="text-xs text-inkMuted mt-1">بإشراف النحّالة نفسها</div>
+                <div className="text-xs text-inkMuted mt-1">
+                  وزارة البيئة والمياه والزراعة
+                </div>
               </div>
             </div>
           </div>
 
           {/* Visual Showcase Side */}
           <div className="lg:col-span-5 flex">
-            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-luxury bg-emeraldDeep text-creamBase min-h-[360px] lg:min-h-[460px]">
+            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-luxury bg-emeraldDeep text-creamBase min-h-[340px] lg:min-h-[460px]">
               <ResilientImage
                 src={HERO_SHOWCASE_IMAGE}
-                alt="عسل بلدي فاخر وقرص شمع طبيعي من مناحل آمنة عبد الكريم"
+                alt="عسل سدرة المدينة المنورة وعسل طلح أصلي من مناحل بلدية آمنة عبد الكريم"
                 fallbackTitle="مناحل آمنة عبد الكريم"
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emeraldDeep/95 via-emeraldDeep/35 to-transparent" />

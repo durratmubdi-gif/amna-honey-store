@@ -23,22 +23,16 @@ export function Header({ cartCount, onOpenCart }: HeaderProps) {
           className="hidden md:flex items-center gap-7 text-sm font-semibold text-inkDark"
         >
           <a
-            href="#story"
-            className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
-          >
-            قصتنا والعناية
-          </a>
-          <a
             href="#products"
             className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
           >
             متجر العسل
           </a>
           <a
-            href="#diary"
+            href="#about"
             className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
           >
-            يوميات المنحل
+            من نحن
           </a>
           <a
             href="#videos-library"
@@ -47,10 +41,16 @@ export function Header({ cartCount, onOpenCart }: HeaderProps) {
             لقاءات وفيديو
           </a>
           <a
-            href="#delivery-info"
+            href="#faq"
             className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
           >
-            التوصيل والدفع
+            الأسئلة الشائعة
+          </a>
+          <a
+            href="#quick-order"
+            className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
+          >
+            طلب سريع
           </a>
         </nav>
 

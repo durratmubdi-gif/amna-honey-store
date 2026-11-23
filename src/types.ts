@@ -6,6 +6,14 @@ export type PaymentMethod =
   | 'الدفع عند الاستلام (داخل المدينة المنورة)'
   | 'تحويل بنكي (مصرف الراجحي)';
 
+export interface ProductDetails {
+  taste: string;
+  color: string;
+  benefits: string;
+  season: string;
+  usageAndStorage: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -13,7 +21,9 @@ export interface Product {
   description: string;
   available: boolean;
   image: string;
+  imageAlt?: string;
   prices: Record<WeightKey, number>;
+  details?: ProductDetails;
 }
 
 export interface DiaryEntry {
@@ -22,6 +32,21 @@ export interface DiaryEntry {
   title: string;
   desc: string;
   image: string;
+  imageAlt?: string;
+}
+
+export interface ReviewItem {
+  id: string;
+  author: string;
+  city: string;
+  product: string;
+  quote: string;
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
 }
 
 export interface CartItem {

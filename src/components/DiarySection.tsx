@@ -31,8 +31,9 @@ export function DiarySection({ entries }: DiarySectionProps) {
               <div className="aspect-[4/3] overflow-hidden bg-creamBase">
                 <ResilientImage
                   src={item.image}
-                  alt={item.title}
+                  alt={item.imageAlt || item.title}
                   fallbackTitle={item.title}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
