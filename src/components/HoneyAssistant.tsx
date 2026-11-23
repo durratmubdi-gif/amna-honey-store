@@ -208,7 +208,7 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
         aria-label="المساعد الذكي للعسل"
         className="fixed bottom-[4.25rem] md:bottom-4 right-4 z-40 inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full bg-emeraldDeep text-creamBase border border-honeyGold/50 shadow-luxury hover:scale-[1.03] transition cursor-pointer"
       >
-        <span className="w-7 h-7 rounded-full bg-gradient-to-br from-honeyGold to-honeyLight text-emeraldDeep flex items-center justify-center">
+        <span className="w-7 h-7 rounded-full bg-gradient-to-br from-honeyGold to-honeyLight text-white flex items-center justify-center">
           <Sparkles className="w-3.5 h-3.5" />
         </span>
         <span className="text-xs sm:text-sm font-extrabold whitespace-nowrap">
@@ -217,18 +217,18 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-32 md:bottom-20 right-4 z-50 w-[92vw] max-w-md rounded-3xl bg-white shadow-2xl border border-honeyGold/35 overflow-hidden flex flex-col max-h-[70vh]">
+        <div className="fixed bottom-32 md:bottom-20 right-4 z-50 w-[92vw] max-w-md rounded-xl bg-white shadow-2xl border border-honeyGold/35 overflow-hidden flex flex-col max-h-[70vh]">
           {/* Header */}
           <div className="bg-emeraldDeep text-creamBase px-4 py-3.5 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-honeyGold/20 border border-honeyGold/40 flex items-center justify-center text-honeyLight">
+              <div className="w-9 h-9 rounded-lg bg-white/15 border border-white/25 flex items-center justify-center text-[#FDF3D0]">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
                 <div className="text-sm font-extrabold text-white">
                   مستشار مناحل آمنة الذكي
                 </div>
-                <div className="text-[11px] text-honeyLight">
+                <div className="text-[11px] text-[#FDF3D0]">
                   يجيب عن الأنواع، الأسعار، التوصيل والتحويل
                 </div>
               </div>
@@ -312,7 +312,7 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
               type="submit"
               disabled={isLoading || !input.trim()}
               aria-label="إرسال"
-              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-xl bg-emeraldDeep text-honeyLight hover:bg-emeraldSoft transition cursor-pointer disabled:opacity-50"
+              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg bg-emeraldDeep text-white hover:bg-emeraldSoft transition cursor-pointer disabled:opacity-50"
             >
               <Send className="w-4 h-4" />
             </button>

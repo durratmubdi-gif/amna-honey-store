@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Rich Honey Brown, Warm Gold & Clean White Natural Palette */
-  --color-emeraldDeep: #3B2314;
-  --color-emeraldSoft: #5A3821;
-  --color-honeyGold: #C59B27;
-  --color-honeyLight: #E6C15A;
-  --color-creamBase: #FCF9F2;
-  --color-creamCard: #FFFFFF;
-  --color-inkDark: #26160C;
-  --color-inkMuted: #6E5442;
+  /* Approved Unified Honey Gold, Natural Brown & Warm Cream Palette */
+  --color-emeraldDeep: #8B5A2B;
+  --color-emeraldSoft: #9F6F42;
+  --color-honeyGold: #B8860B;
+  --color-honeyLight: #C89B2D;
+  --color-creamBase: #FFFEF9;
+  --color-creamCard: #F9F6ED;
+  --color-inkDark: #2C2C2C;
+  --color-inkMuted: #666666;
 
-  --font-display: "Amiri", Georgia, serif;
-  --font-sans: "Tajawal", system-ui, -apple-system, sans-serif;
+  --font-display: "Tajawal", system-ui, -apple-system, sans-serif;
+  --font-sans: "Noto Naskh Arabic", "Tajawal", system-ui, sans-serif;
 
-  --shadow-luxury: 0 20px 45px -15px rgba(59, 35, 20, 0.14);
-  --shadow-goldGlow: 0 10px 25px -5px rgba(197, 155, 39, 0.34);
+  --shadow-luxury: 0 10px 28px -10px rgba(139, 90, 43, 0.14);
+  --shadow-goldGlow: 0 8px 20px -6px rgba(184, 134, 11, 0.34);
 }
 
 html {
@@ -24,12 +24,9 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #FCF9F2;
-  color: #26160C;
+  background-color: #FFFEF9;
+  color: #2C2C2C;
   overflow-x: hidden;
-  background-image:
-    radial-gradient(circle at 15% 18%, rgba(197, 155, 39, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(90, 56, 33, 0.05) 0%, transparent 50%);
 }
 
 h1, h2, h3, .font-display {
@@ -57,10 +54,10 @@ h1, h2, h3, .font-display {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F4EDE0;
+  background: #F6F0E0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C59B27;
+  background: #C89B2D;
   border-radius: 9999px;
 }

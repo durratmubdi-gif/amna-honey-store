@@ -6,12 +6,14 @@ import { CartDrawer } from './components/CartDrawer';
 import { DeliverySection } from './components/DeliverySection';
 import { DiarySection } from './components/DiarySection';
 import { FaqSection } from './components/FaqSection';
+import { FeaturesSection } from './components/FeaturesSection';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { HoneyAssistant } from './components/HoneyAssistant';
-import { LegalSection } from './components/LegalSection';
+import { LegalPage } from './components/LegalPages';
 import { ProductsSection } from './components/ProductsSection';
 import { QuickOrderSection } from './components/QuickOrderSection';
+import { ReviewsSection } from './components/ReviewsSection';
 import { VideosSection } from './components/VideosSection';
 import {
   WEIGHT_LABELS,
@@ -22,7 +24,17 @@ import {
 } from './data/defaultStore';
 import type { CartItem, StoreState, WeightKey } from './types';
 
+type ActiveRoute = 'home' | 'privacy' | 'terms';
+
+function resolveHashRoute(): ActiveRoute {
+  const hash = window.location.hash.replace(/^#/, '').toLowerCase();
+  if (hash === '/privacy' || hash === 'privacy') return 'privacy';
+  if (hash === '/terms' || hash === 'terms') return 'terms';
+  return 'home';
+}
+
 export default function App() {
+  const [route, setRoute] = useState<ActiveRoute>(() => resolveHashRoute());
   const [store, setStore] = useState<StoreState>(() => loadStoreState());
   const [selectedWeights, setSelectedWeights] = useState<Record<string, WeightKey>>({
     sidr: 'kilo',
@@ -34,6 +46,42 @@ export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const toastTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const next = resolveHashRoute();
+      setRoute(next);
+      if (next !== 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const navigateTo = useCallback((next: ActiveRoute, sectionId?: string) => {
+    if (next === 'privacy') {
+      window.location.hash = '/privacy';
+      setRoute('privacy');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (next === 'terms') {
+      window.location.hash = '/terms';
+      setRoute('terms');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    window.location.hash = '';
+    setRoute('home');
+    if (sectionId) {
+      window.setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 40);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, []);
 
   const showToast = useCallback((message: string) => {
     setToastMessage(message);
@@ -133,88 +181,176 @@ export default function App() {
           aria-live="polite"
           className="fixed top-5 left-1/2 -translate-x-1/2 z-[100] pointer-events-none"
         >
-          <div className="bg-emeraldDeep text-creamBase px-5 py-3 rounded-full shadow-luxury border border-honeyGold/40 flex items-center gap-2 text-xs sm:text-sm font-medium whitespace-nowrap">
-            <CheckCircle2 className="w-4 h-4 text-honeyLight shrink-0" />
+          <div className="bg-emeraldDeep text-white px-5 py-3 rounded-lg shadow-luxury border border-honeyGold/40 flex items-center gap-2 text-xs sm:text-sm font-medium whitespace-nowrap">
+            <CheckCircle2 className="w-4 h-4 text-[#F3D579] shrink-0" />
             <span>{toastMessage}</span>
           </div>
         </div>
       )}
 
-      <Header cartCount={totalCartCount} onOpenCart={() => setIsCartOpen(true)} />
+      <Header
+        cartCount={totalCartCount}
+        onOpenCart={() => setIsCartOpen(true)}
+        onNavigateHome={() => setRoute('home')}
+      />
 
       <main className="flex-1">
-        <HeroSection whatsapp={store.whatsapp} />
-        <ProductsSection
-          products={store.products}
-          whatsapp={store.whatsapp}
-          selectedWeights={selectedWeights}
-          onSelectWeight={handleSelectWeight}
-          onAddToCart={handleAddToCart}
-        />
-        <AboutTrustSection />
-        <DiarySection entries={store.diary} />
-        <VideosSection />
-        <FaqSection whatsapp={store.whatsapp} />
-        <QuickOrderSection
-          products={store.products}
-          whatsapp={store.whatsapp}
-          onShowToast={showToast}
-        />
-        <DeliverySection onShowToast={showToast} />
-        <LegalSection />
+        {route === 'privacy' || route === 'terms' ? (
+          <LegalPage
+            mode={route}
+            onBackHome={() => navigateTo('home')}
+            onSwitchMode={(nextMode) => navigateTo(nextMode)}
+          />
+        ) : (
+          <>
+            {/* Section 1: Hero */}
+            <HeroSection whatsapp={store.whatsapp} />
+            {/* Section 2: Features */}
+            <FeaturesSection />
+            {/* Section 3: Products */}
+            <ProductsSection
+              products={store.products}
+              whatsapp={store.whatsapp}
+              selectedWeights={selectedWeights}
+              onSelectWeight={handleSelectWeight}
+              onAddToCart={handleAddToCart}
+            />
+            {/* Section 4: About Apiary + Portrait + License + Apiary Environment & Videos */}
+            <AboutTrustSection />
+            <DiarySection entries={store.diary} />
+            <VideosSection />
+            {/* Section 5: Reviews */}
+            <ReviewsSection />
+            {/* Section 6: FAQ */}
+            <FaqSection whatsapp={store.whatsapp} />
+            {/* Section 7: Contact, Delivery & Bank Transfer + Direct Order Form */}
+            <DeliverySection onShowToast={showToast} />
+            <QuickOrderSection
+              products={store.products}
+              whatsapp={store.whatsapp}
+              onShowToast={showToast}
+            />
+          </>
+        )}
       </main>
 
-      {/* Footer with End-of-Page WhatsApp Action & Legal Links */}
-      <footer className="bg-[#29170C] text-creamBase/85 pt-8 pb-20 md:pb-8 border-t border-honeyGold/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
-          <div className="text-center md:text-right">
-            <strong className="text-white">مناحل آمنة عبد الكريم</strong> — عسل سدرة
-            المدينة المنورة وطلح وسمرة طبيعي 100% · واتساب:{' '}
-            <span dir="ltr" className="tabular-nums">
-              {formatDisplayPhone(store.whatsapp)}
-            </span>
+      {/* Section 8: Unified Footer (rendered on Home, Privacy Policy, and Terms pages) */}
+      <footer className="bg-[#3B2613] text-white/85 pt-10 pb-20 md:pb-10 border-t border-honeyGold/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-6 border-b border-white/15">
+            {/* Quick Links */}
+            <nav
+              aria-label="روابط التذييل السريعة"
+              className="flex flex-wrap items-center justify-center gap-5 text-xs sm:text-sm font-bold"
+            >
+              <a
+                href="#story"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'story');
+                }}
+                className="hover:text-[#F3D579] transition-colors whitespace-nowrap"
+              >
+                الرئيسية
+              </a>
+              <a
+                href="#products"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'products');
+                }}
+                className="hover:text-[#F3D579] transition-colors whitespace-nowrap"
+              >
+                منتجاتنا
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'about');
+                }}
+                className="hover:text-[#F3D579] transition-colors whitespace-nowrap"
+              >
+                من نحن
+              </a>
+              <a
+                href="#faq"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('home', 'faq');
+                }}
+                className="hover:text-[#F3D579] transition-colors whitespace-nowrap"
+              >
+                الأسئلة الشائعة
+              </a>
+              <span aria-hidden="true" className="text-white/30">
+                |
+              </span>
+              <a
+                href="#/privacy"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('privacy');
+                }}
+                className="hover:text-[#F3D579] underline underline-offset-4 transition-colors whitespace-nowrap"
+              >
+                سياسة الخصوصية
+              </a>
+              <a
+                href="#/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo('terms');
+                }}
+                className="hover:text-[#F3D579] underline underline-offset-4 transition-colors whitespace-nowrap"
+              >
+                شروط الاستخدام
+              </a>
+            </nav>
+
+            {/* Contact Actions */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm">
+              <a
+                href={generalWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 min-h-[40px] px-4 py-1.5 rounded-lg bg-gradient-to-l from-honeyGold to-honeyLight hover:brightness-105 text-white font-bold transition whitespace-nowrap"
+              >
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span>واتساب:</span>
+                <span dir="ltr" className="tabular-nums">
+                  {formatDisplayPhone(store.whatsapp)}
+                </span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setIsAdminOpen(true)}
+                className="inline-flex items-center gap-1.5 text-[#F3D579]/90 hover:text-[#F3D579] underline underline-offset-4 cursor-pointer whitespace-nowrap"
+              >
+                <Lock className="w-3.5 h-3.5" />
+                <span>إدارة المنحل</span>
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#legal"
-              className="text-creamBase/80 hover:text-honeyLight underline underline-offset-4 whitespace-nowrap"
-            >
-              الخصوصية وشروط الاستخدام
-            </a>
-
-            <a
-              href={generalWhatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 min-h-[38px] px-4 py-1.5 rounded-xl bg-[#128C7E] hover:bg-[#0e7468] text-white font-bold transition whitespace-nowrap"
-            >
-              <MessageCircle className="w-4 h-4 shrink-0" />
-              <span>اطلب عبر واتساب</span>
-            </a>
-
-            <button
-              type="button"
-              onClick={() => setIsAdminOpen(true)}
-              className="inline-flex items-center gap-1.5 text-honeyLight/90 hover:text-honeyLight underline underline-offset-4 cursor-pointer whitespace-nowrap"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span>إدارة المنحل</span>
-            </button>
+          <div className="text-center text-xs text-white/75 leading-relaxed">
+            مناحل آمنة عبد الكريم © 2026 — جميع الحقوق محفوظة — المدينة المنورة —
+            ترخيص معتمد من وزارة البيئة والمياه والزراعة
           </div>
         </div>
       </footer>
 
       {/* Mobile Sticky Bottom WhatsApp Bar */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-30 h-[54px] bg-emeraldDeep/95 backdrop-blur-md border-t border-honeyGold/30 px-4 flex items-center justify-between gap-3">
-        <span className="text-xs font-bold text-creamBase truncate">
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-30 h-[54px] bg-[#3B2613]/95 backdrop-blur-md border-t border-honeyGold/40 px-4 flex items-center justify-between gap-3">
+        <span className="text-xs font-bold text-white truncate">
           عسل طبيعي 100% · توصيل فوري بالمدينة
         </span>
         <a
           href={generalWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="min-h-[38px] px-4 py-1.5 rounded-xl bg-[#128C7E] hover:bg-[#0e7468] text-white font-extrabold text-xs inline-flex items-center gap-1.5 shrink-0 whitespace-nowrap"
+          className="min-h-[38px] px-4 py-1.5 rounded-lg bg-gradient-to-l from-honeyGold to-honeyLight hover:brightness-105 text-white font-bold text-xs inline-flex items-center gap-1.5 shrink-0 whitespace-nowrap"
         >
           <MessageCircle className="w-4 h-4 shrink-0" />
           <span>اطلب عبر واتساب</span>

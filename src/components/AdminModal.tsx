@@ -224,7 +224,7 @@ export function AdminModal({
             )}
             <button
               type="submit"
-              className="w-full min-h-[44px] py-2.5 rounded-xl bg-emeraldDeep text-honeyLight font-bold text-sm hover:bg-emeraldSoft transition cursor-pointer"
+              className="w-full min-h-[44px] py-2.5 rounded-lg bg-emeraldDeep text-white font-bold text-sm hover:bg-emeraldSoft transition cursor-pointer"
             >
               دخول اللوحة
             </button>
@@ -278,7 +278,7 @@ export function AdminModal({
                         onClick={() => handleAvailabilityToggle(prod.id)}
                         className={`px-3 py-1 rounded-lg text-xs font-bold cursor-pointer transition ${
                           prod.available
-                            ? 'bg-emeraldDeep text-honeyLight'
+                            ? 'bg-emeraldDeep text-white'
                             : 'bg-red-100 text-red-800'
                         }`}
                       >
@@ -359,7 +359,7 @@ export function AdminModal({
               <button
                 type="button"
                 onClick={handleAddDiary}
-                className="px-4 py-2 rounded-xl bg-emeraldDeep text-honeyLight text-xs font-bold hover:bg-emeraldSoft cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-emeraldDeep text-white text-xs font-bold hover:bg-emeraldSoft cursor-pointer"
               >
                 + إضافة التحديث
               </button>
@@ -422,7 +422,7 @@ export function AdminModal({
               <button
                 type="button"
                 onClick={handleSaveChanges}
-                className="min-h-[44px] px-6 py-2.5 rounded-xl bg-gradient-to-l from-honeyGold to-honeyLight text-emeraldDeep font-extrabold text-sm shadow-goldGlow cursor-pointer"
+                className="min-h-[44px] px-6 py-2.5 rounded-lg bg-gradient-to-l from-honeyGold to-honeyLight text-white font-extrabold text-sm shadow-goldGlow cursor-pointer"
               >
                 حفظ جميع التعديلات
               </button>

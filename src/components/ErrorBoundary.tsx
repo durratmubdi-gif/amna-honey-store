@@ -47,7 +47,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <button
               type="button"
               onClick={this.handleReset}
-              className="px-6 py-2.5 rounded-xl bg-emeraldDeep text-honeyLight font-bold text-sm cursor-pointer hover:bg-emeraldSoft transition"
+              className="px-6 py-2.5 rounded-lg bg-emeraldDeep text-white font-bold text-sm cursor-pointer hover:bg-emeraldSoft transition"
             >
               إعادة تحميل المتجر
             </button>

@@ -181,7 +181,7 @@ export function CartDrawer({
         {/* Header */}
         <div className="p-5 bg-emeraldDeep text-creamBase flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <ShoppingBag className="w-5 h-5 text-honeyLight" />
+            <ShoppingBag className="w-5 h-5 text-[#FDF3D0]" />
             <h3 className="font-display text-2xl font-bold text-white">سلة الطلبات</h3>
           </div>
           <button
@@ -239,7 +239,7 @@ export function CartDrawer({
                       type="button"
                       onClick={() => onChangeQty(idx, 1)}
                       aria-label={`زيادة كمية ${item.name}`}
-                      className="w-8 h-8 rounded-lg bg-emeraldDeep text-honeyLight font-bold cursor-pointer hover:bg-emeraldSoft"
+                      className="w-8 h-8 rounded-lg bg-emeraldDeep text-white font-bold cursor-pointer hover:bg-emeraldSoft"
                     >
                       +
                     </button>
@@ -332,7 +332,7 @@ export function CartDrawer({
                   type="button"
                   onClick={handleDetectGps}
                   disabled={isLocating}
-                  className="inline-flex items-center gap-1.5 min-h-[34px] px-3 py-1 rounded-xl bg-emeraldDeep text-honeyLight text-xs font-bold hover:bg-emeraldSoft transition cursor-pointer disabled:opacity-60 whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 min-h-[34px] px-3 py-1 rounded-lg bg-emeraldDeep text-white text-xs font-bold hover:bg-emeraldSoft transition cursor-pointer disabled:opacity-60 whitespace-nowrap"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   <span>
@@ -421,7 +421,7 @@ export function CartDrawer({
                 <button
                   type="button"
                   onClick={handleCopyIban}
-                  className="px-2.5 py-1 rounded-lg bg-emeraldDeep text-honeyLight font-bold cursor-pointer inline-flex items-center gap-1"
+                  className="px-2.5 py-1 rounded-lg bg-emeraldDeep text-white font-bold cursor-pointer inline-flex items-center gap-1"
                 >
                   {copiedIban ? (
                     <Check className="w-3 h-3" />

@@ -1,6 +1,10 @@
-import coverMadinahImg from '../assets/images/cover_madinah_honey_gold_1795430455728.jpg';
-import productsTrioImg from '../assets/images/products_trio_gold_brown_1795430455200.jpg';
+import heroWideImg from '../assets/images/hero_madinah_apiary_wide_1795431021299.jpg';
+import sidrJarImg from '../assets/images/product_sidr_jar_1795431021149.jpg';
+import talhJarImg from '../assets/images/product_talh_jar_1795431021377.jpg';
+import samraJarImg from '../assets/images/product_samra_jar_1795431022463.jpg';
+import apiaryFrameImg from '../assets/images/apiary_honeycomb_hives_craft_1795431311283.jpg';
 import trustCertImg from '../assets/images/trust_certificate_honey_gold_1795430456485.jpg';
+import apiaryCoverImg from '../assets/images/cover_madinah_honey_gold_1795430455728.jpg';
 import faqHoneyImg from '../assets/images/faq_honey_clarity_visual_1795430455710.jpg';
 import type { FaqItem, Product, ReviewItem, StoreState, WeightKey } from '../types';
 
@@ -8,11 +12,12 @@ export const STORAGE_KEY = 'amna_honey_store_v1';
 export const DEFAULT_IBAN = 'SA09 8000 0272 6080 1030 2900';
 export const BENEFICIARY_NAME = 'آمنة عبد الكريم';
 
-export const HERO_SHOWCASE_IMAGE = coverMadinahImg;
-export const PRODUCTS_TRIO_IMAGE = productsTrioImg;
+export const HERO_SHOWCASE_IMAGE = heroWideImg;
+export const APIARY_FRAME_IMAGE = apiaryFrameImg;
 export const TRUST_CERT_IMAGE = trustCertImg;
+export const APIARY_ENVIRONMENT_IMAGE = apiaryCoverImg;
 export const FAQ_HONEY_IMAGE = faqHoneyImg;
-export const DIARY_DEFAULT_IMAGE = coverMadinahImg;
+export const DIARY_DEFAULT_IMAGE = apiaryCoverImg;
 
 export const WEIGHT_LABELS: Record<WeightKey, string> = {
   quarter: 'ربع كيلو',
@@ -27,7 +32,7 @@ export const CUSTOMER_REVIEWS: ReviewItem[] = [
     id: 'rev-1',
     author: 'أبو عبد الرحمن الجهني',
     city: 'المدينة المنورة',
-    product: 'عسل سدرة المدينة المنورة · كيلو',
+    product: 'عسل سدرة بلدي · كيلو',
     quote:
       'طلبت عسل السدرة ووصلني خلال ساعات داخل المدينة، القوام ثقيل والرائحة بلدية أصيلة وطعمه واضح أنه صافي من الخلية.',
   },
@@ -35,7 +40,7 @@ export const CUSTOMER_REVIEWS: ReviewItem[] = [
     id: 'rev-2',
     author: 'أم سارة الحربي',
     city: 'جدة',
-    product: 'عسل طلح أصلي · نصف كيلو',
+    product: 'عسل طلح بلدي · نصف كيلو',
     quote:
       'ثاني مرة أطلب عسل الطلح للوالدة؛ التغليف محكم جداً والشحن وصل سريعاً، والأجمل المصداقية والوضوح في التعامل عبر الواتساب.',
   },
@@ -43,7 +48,7 @@ export const CUSTOMER_REVIEWS: ReviewItem[] = [
     id: 'rev-3',
     author: 'فيصل العتيبي',
     city: 'الرياض',
-    product: 'عسل سمرة طبيعي · كيلو',
+    product: 'عسل سمرة بلدي · كيلو',
     quote:
       'ما شاء الله تبارك الله، عسل السمرة غني جداً ومناسب لروتين الصباح، والالتزام بالمعايير والترخيص يعطي راحة بال كبيرة.',
   },
@@ -54,25 +59,19 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-natural',
     question: 'هل العسل طبيعي 100%؟',
     answer:
-      'نعم، 100% من مناحلنا مباشرة دون أي إضافات أو تسخين أو تغذية صناعية، مع ضمان استرداد المبلغ كاملاً عند عدم الرضا.',
+      'نعم، جميع أنواع العسل طبيعية 100% من مناحلنا مباشرة في المدينة المنورة دون أي إضافات أو تسخين أو تغذية صناعية، وبترخيص معتمد من وزارة البيئة والمياه والزراعة.',
   },
   {
-    id: 'faq-payment',
-    question: 'كيف يتم الدفع؟',
+    id: 'faq-delivery-payment',
+    question: 'كيف تتم عملية التوصيل والدفع؟',
     answer:
-      'داخل المدينة المنورة يتوفر الدفع عند الاستلام أو التحويل البنكي. وللمناطق الأخرى خارج المدينة يتم الدفع بالتحويل البنكي المسبق فقط.',
+      'داخل المدينة المنورة التوصيل فوري ويتوفر الدفع عند الاستلام أو التحويل البنكي. وخارج المدينة المنورة يتم الشحن حسب المنطقة والدفع بالتحويل البنكي المسبق فقط.',
   },
   {
-    id: 'faq-delivery',
-    question: 'ما مدة التوصيل؟',
+    id: 'faq-refund',
+    question: 'ما سياسة الاسترجاع والاسترداد؟',
     answer:
-      'داخل المدينة المنورة التوصيل فوري في نفس اليوم مع تحديد الرسوم حسب الموقع، وخارج المدينة المنورة يُشحن الطلب حسب المنطقة خلال 2 إلى 4 أيام عمل.',
-  },
-  {
-    id: 'faq-quality',
-    question: 'كيف أضمن جودة المنتج وسياسة الاسترجاع؟',
-    answer:
-      'المناحل مرخصة رسمياً من وزارة البيئة والمياه والزراعة، ونلتزم باسترجاع المنتج واسترداد المبلغ كاملاً إذا ثبت أي خلل في النقاء أو الجودة.',
+      'نضمن لك نقاء وجودة العسل 100%؛ وفي حال عدم الرضا أو وجود أي ملاحظة على جودة المنتج يحق لك استرجاعه واسترداد المبلغ كاملاً.',
   },
 ];
 
@@ -80,10 +79,12 @@ const OLD_ASSET_MARKERS = [
   'unsplash.com',
   '/src/assets/images/',
   'beekeeper_amna_portrait',
+  'beekeeper_amna_work_portrait',
   'hero_honey_showcase',
   'product_sidr_honey',
   'product_talh_honey',
   'product_samra_honey',
+  'products_trio_gold_brown',
   'diary_apiary_hives',
   'diary_honey_harvest',
 ];
@@ -97,10 +98,10 @@ export const defaultStoreState: StoreState = {
       name: 'عسل سدرة بلدي',
       subtitle: 'كهرماني ذهبي · قوام غني ونكهة أصيلة',
       description:
-        'عسل سدرة طبيعي مختار بعناية من أزهار السدر البري، يتميز بلونه الذهبي الكهرماني وطعمه الأصيل.',
+        'عسل سدرة طبيعي مختار بعناية من أزهار السدر البري، يتميز بقوامه الغني ولونه الذهبي الصافي ونكهته الفاخرة.',
       available: true,
-      image: productsTrioImg,
-      imageAlt: 'عسل سدرة المدينة المنورة بلدي صافي من مناحل آمنة عبد الكريم',
+      image: sidrJarImg,
+      imageAlt: 'عبوة عسل سدرة المدينة المنورة بلدي صافي من مناحل آمنة عبد الكريم',
       prices: {
         quarter: 150,
         half: 250,
@@ -120,10 +121,10 @@ export const defaultStoreState: StoreState = {
       name: 'عسل طلح بلدي',
       subtitle: 'عنبر محمر · نكهة برية مميزة',
       description:
-        'عسل طلح طبيعي بنكهته البرية المميزة ولونه العنبري الدافئ وقوامه المتوازن للاستخدام اليومي.',
+        'عسل طلح أصلي بنكهته البرية الواضحة ولونه العنبري الدافئ، خيار محبب للاستخدام اليومي المتواصل.',
       available: true,
-      image: productsTrioImg,
-      imageAlt: 'عسل طلح أصلي من مناحل بلدية طبيعية في المدينة المنورة',
+      image: talhJarImg,
+      imageAlt: 'عبوة عسل طلح أصلي من مناحل بلدية طبيعية في المدينة المنورة',
       prices: {
         quarter: 150,
         half: 250,
@@ -143,10 +144,10 @@ export const defaultStoreState: StoreState = {
       name: 'عسل سمرة بلدي',
       subtitle: 'بني داكن ياقوتي · طابع جبلي أصيل',
       description:
-        'عسل سمرة بلدي ذو لون بني داكن غني وحضور مميز، يجمع بين العراقة والعناية المباشرة بالخلايا.',
+        'عسل سمرة طبيعي ذو لون بني داكن غني وحضور مميز، يجمع بين العراقة الجبلية والعناية المباشرة بالخلايا.',
       available: true,
-      image: productsTrioImg,
-      imageAlt: 'عسل سمرة طبيعي داكن من مناحل بلدية معتمدة في المدينة المنورة',
+      image: samraJarImg,
+      imageAlt: 'عبوة عسل سمرة طبيعي داكن من مناحل بلدية معتمدة في المدينة المنورة',
       prices: {
         quarter: 150,
         half: 250,
@@ -167,16 +168,16 @@ export const defaultStoreState: StoreState = {
       id: 'd1',
       tag: 'رعاية النحل',
       title: 'تفقد الخلايا وتهيئة بيئة النحل',
-      desc: 'متابعة دورية لخلايا النحل والاطمئنان على نشاطها وصحتها لضمان موسم إنتاج نظيف ومتوازن.',
-      image: coverMadinahImg,
-      imageAlt: 'خلايا مناحل بلدية خشبية في المدينة المنورة بإشراف آمنة عبد الكريم',
+      desc: 'متابعة دورية لخلايا النحل في المدينة المنورة والاطمئنان على نشاطها وصحتها لضمان موسم إنتاج نظيف ومتوازن.',
+      image: apiaryCoverImg,
+      imageAlt: 'خلايا مناحل بلدية في البيئة الطبيعية بالمدينة المنورة بإشراف آمنة عبد الكريم',
     },
     {
       id: 'd2',
       tag: 'فرز وتعبئة',
       title: 'فرز العسل وتعبئته بأمانة',
       desc: 'الاهتمام بنظافة الأدوات والعبوات والحفاظ على خصائص العسل الطبيعية دون تدخل يخل بجودته.',
-      image: productsTrioImg,
+      image: sidrJarImg,
       imageAlt: 'فرز وتعبئة عسل سدرة المدينة المنورة وعسل طلح أصلي بأمانة',
     },
     {

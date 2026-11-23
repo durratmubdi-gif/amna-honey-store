@@ -1,129 +1,131 @@
-import { Award, CheckCircle2, Quote, ShieldCheck, Truck } from 'lucide-react';
-import { CUSTOMER_REVIEWS, TRUST_CERT_IMAGE } from '../data/defaultStore';
+import { Award, CheckCircle2, Droplets, Eye, Shield } from 'lucide-react';
+import {
+  APIARY_FRAME_IMAGE,
+  TRUST_CERT_IMAGE,
+} from '../data/defaultStore';
 import { ResilientImage } from './ResilientImage';
+
+const CORE_VALUES = [
+  {
+    id: 'honesty',
+    icon: Shield,
+    title: 'الأمانة',
+    desc: 'الالتزام الكامل بصدق المصدر ونقاء العسل دون أي خلط أو غش.',
+  },
+  {
+    id: 'fieldwork',
+    icon: Eye,
+    title: 'المتابعة الميدانية',
+    desc: 'تفقد شخصي ومستمر للخلايا في مواقع تزهير السدر والطلح والسمرة.',
+  },
+  {
+    id: 'extraction',
+    icon: Droplets,
+    title: 'الفرز الطبيعي',
+    desc: 'فرز على البارد يحفظ الإنزيمات واللون والطعم البلدي الأصيل.',
+  },
+  {
+    id: 'purity',
+    icon: CheckCircle2,
+    title: 'الجودة دون إضافات',
+    desc: 'عسل صافي 100% خالٍ من التغذية الصناعية أو المواد الحافظة.',
+  },
+];
 
 export function AboutTrustSection() {
   return (
-    <section id="about" className="py-16 sm:py-24 border-b border-emeraldDeep/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-        {/* Trust & Official License — Image 3 */}
+    <section
+      id="about"
+      className="py-16 sm:py-24 bg-creamCard border-b border-emeraldDeep/15"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          <div className="lg:col-span-5 flex">
-            <div className="relative w-full rounded-[2rem] overflow-hidden shadow-luxury bg-emeraldDeep min-h-[300px] sm:min-h-[360px]">
-              <ResilientImage
-                src={TRUST_CERT_IMAGE}
-                alt="ترخيص مناحل آمنة عبد الكريم المعتمد من وزارة البيئة والمياه والزراعة مع عبوة عسل سدرة طبيعي"
-                fallbackTitle="الثقة والترخيص الرسمي"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-emeraldDeep/90 via-emeraldDeep/20 to-transparent" />
-              <div className="absolute bottom-0 inset-x-0 p-6 text-white">
-                <p className="text-xs font-bold text-honeyLight">
-                  المدينة المنورة · ترخيص نحال ومنحل متنقل
-                </p>
-                <p className="font-display text-2xl font-bold mt-1">
-                  مناحل آمنة عبد الكريم
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6 py-2">
-            <div className="space-y-3">
-              <p className="text-xs sm:text-sm font-extrabold text-honeyGold">
-                الثقة والترخيص الرسمي
+          {/* Descriptive Text + Core Values */}
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <p className="text-xs sm:text-sm font-bold text-honeyGold">
+                عن المنحل والثقة الرسمية
               </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-emeraldDeep leading-snug">
-                التزام كامل بالترخيص الرسمي وجودة العسل البلدي
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark leading-snug">
+                من نحن — قصة تبدأ من خلية وتصل إلى مائدتك
               </h2>
               <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
-                تعمل مناحل آمنة عبد الكريم في المدينة المنورة تحت إشراف مباشر وترخيص
-                معتمد من وزارة البيئة والمياه والزراعة، لضمان وصول عسل طبيعي صافي
-                مضمون المصدر إلى مائدتك.
+                في قلب المدينة المنورة، تُشرف النحّالة{' '}
+                <strong className="text-inkDark">آمنة عبد الكريم</strong> ميدانياً على
+                خلايا النحل في مواسم التزهير الطبيعية، برعاية أمينة وترخيص رسمي معتمد
+                من <strong className="text-inkDark">وزارة البيئة والمياه والزراعة</strong>{' '}
+                لضمان وصول عسل بلدي صافي وموثوق إلى كل بيت.
               </p>
             </div>
 
-            {/* 4 Clear Trust Points from Image 3 */}
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-2xl bg-white border border-emeraldDeep/15 p-5 space-y-1.5">
-                <div className="flex items-center gap-2 text-emeraldDeep font-extrabold text-sm">
-                  <Award className="w-5 h-5 text-honeyGold shrink-0" />
-                  <span>ترخيص معتمد رسمياً</span>
-                </div>
-                <p className="text-xs sm:text-sm text-inkMuted leading-relaxed">
-                  ترخيص معتمد من وزارة البيئة والمياه والزراعة لرعاية المناحل وإنتاج
-                  العسل.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-emeraldDeep/15 p-5 space-y-1.5">
-                <div className="flex items-center gap-2 text-emeraldDeep font-extrabold text-sm">
-                  <CheckCircle2 className="w-5 h-5 text-honeyGold shrink-0" />
-                  <span>عسل طبيعي 100% بدون إضافات</span>
-                </div>
-                <p className="text-xs sm:text-sm text-inkMuted leading-relaxed">
-                  إنتاج صافي من أزهار السدر والطلح والسمرة دون تغذية صناعية أو تسخين.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-emeraldDeep/15 p-5 space-y-1.5">
-                <div className="flex items-center gap-2 text-emeraldDeep font-extrabold text-sm">
-                  <Truck className="w-5 h-5 text-honeyGold shrink-0" />
-                  <span>توصيل فوري داخل المدينة</span>
-                </div>
-                <p className="text-xs sm:text-sm text-inkMuted leading-relaxed">
-                  توصيل فوري داخل المدينة المنورة مع إتاحة الدفع عند الاستلام.
-                </p>
-              </div>
-
-              <div className="rounded-2xl bg-white border border-emeraldDeep/15 p-5 space-y-1.5">
-                <div className="flex items-center gap-2 text-emeraldDeep font-extrabold text-sm">
-                  <ShieldCheck className="w-5 h-5 text-honeyGold shrink-0" />
-                  <span>ضمان استرداد المبلغ كاملاً</span>
-                </div>
-                <p className="text-xs sm:text-sm text-inkMuted leading-relaxed">
-                  نضمن استرداد المبلغ كاملاً عند عدم الرضا أو وجود أي ملاحظة على الجودة.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Customer Reviews */}
-        <div className="pt-8 border-t border-emeraldDeep/10 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-            <div>
-              <p className="text-xs sm:text-sm font-extrabold text-honeyGold">
-                تجارب عملائنا
-              </p>
-              <h3 className="text-2xl sm:text-3xl font-bold text-emeraldDeep">
-                آراء من جربوا عسل مناحل آمنة عبد الكريم
-              </h3>
-            </div>
-            <p className="text-xs sm:text-sm text-inkMuted">
-              شهادات حقيقية من عملاء داخل المدينة المنورة وخارجها
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {CUSTOMER_REVIEWS.map((review) => (
-              <blockquote
-                key={review.id}
-                className="rounded-3xl bg-white border border-emeraldDeep/10 p-6 flex flex-col justify-between gap-4"
-              >
-                <div className="space-y-3">
-                  <Quote className="w-5 h-5 text-honeyGold" aria-hidden="true" />
-                  <p className="text-sm text-inkDark leading-relaxed">{review.quote}</p>
-                </div>
-                <footer className="pt-3 border-t border-emeraldDeep/10 text-xs space-y-0.5">
-                  <div className="font-extrabold text-emeraldDeep">{review.author}</div>
-                  <div className="text-inkMuted">
-                    {review.city} <span aria-hidden="true">·</span> {review.product}
+              {CORE_VALUES.map((val) => {
+                const Icon = val.icon;
+                return (
+                  <div
+                    key={val.id}
+                    className="rounded-xl bg-creamBase border border-emeraldDeep/15 p-4 space-y-1.5 shadow-sm"
+                  >
+                    <div className="flex items-center gap-2 font-display font-bold text-sm sm:text-base text-inkDark">
+                      <Icon className="w-4 h-4 text-honeyGold shrink-0" />
+                      <span>{val.title}</span>
+                    </div>
+                    <p className="text-xs text-inkMuted leading-relaxed">{val.desc}</p>
                   </div>
-                </footer>
-              </blockquote>
-            ))}
+                );
+              })}
+            </div>
+
+            <div className="rounded-xl bg-white border border-emeraldDeep/15 p-4 flex items-center gap-3 text-xs sm:text-sm text-inkDark">
+              <Award className="w-5 h-5 text-honeyGold shrink-0" />
+              <span>
+                <strong>الجهة الصادرة للترخيص:</strong> وزارة البيئة والمياه والزراعة —
+                رخصة نحال ومنحل متنقل معتمدة (مع حجب البيانات الشخصية الحساسة).
+              </span>
+            </div>
+          </div>
+
+          {/* Visual Side: Non-Human Apiary Honeycomb Frame + Official License Side by Side */}
+          <div className="lg:col-span-6 grid sm:grid-cols-2 gap-5 items-stretch">
+            <div className="rounded-xl overflow-hidden border border-emeraldDeep/15 bg-white shadow-sm flex flex-col">
+              <div className="aspect-[4/3] sm:aspect-auto sm:flex-1 overflow-hidden">
+                <ResilientImage
+                  src={APIARY_FRAME_IMAGE}
+                  alt="إطار شمع العسل الذهبي داخل خلية نحل خشبية في مناحل آمنة عبد الكريم بالمدينة المنورة"
+                  fallbackTitle="خلايا وإنتاج المنحل"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 border-t border-emeraldDeep/10 bg-creamBase">
+                <p className="font-display text-sm font-bold text-inkDark">
+                  خلايا وإنتاج المنحل
+                </p>
+                <p className="text-xs text-inkMuted mt-0.5">
+                  عسل شمعي صافي من مراعي المدينة المنورة
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-emeraldDeep/15 bg-white shadow-sm flex flex-col">
+              <div className="aspect-[4/3] sm:aspect-auto sm:flex-1 overflow-hidden">
+                <ResilientImage
+                  src={TRUST_CERT_IMAGE}
+                  alt="وثيقة الترخيص المعتمد من وزارة البيئة والمياه والزراعة لمناحل آمنة عبد الكريم مع حجب البيانات الحساسة"
+                  fallbackTitle="الترخيص الرسمي المعتمد"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4 border-t border-emeraldDeep/10 bg-creamBase">
+                <p className="font-display text-sm font-bold text-inkDark">
+                  الترخيص الرسمي المعتمد
+                </p>
+                <p className="text-xs text-inkMuted mt-0.5">
+                  وزارة البيئة والمياه والزراعة
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

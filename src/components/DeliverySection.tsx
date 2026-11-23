@@ -21,79 +21,97 @@ export function DeliverySection({ onShowToast }: DeliverySectionProps) {
   };
 
   return (
-    <section id="delivery-info" className="py-16 sm:py-20 bg-emeraldDeep text-creamBase">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <p className="text-xs sm:text-sm font-bold text-honeyLight">آلية الطلب والتسليم</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            التوصيل والدفع بكل وضوح ويسر
+    <section
+      id="delivery-info"
+      className="py-16 sm:py-24 bg-[#F6F0E0] border-b border-emeraldDeep/15"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+            التواصل والدفع والتوصيل
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+            تواصل معنا — طلبك يصل أينما كنت
           </h2>
+          <p className="text-sm sm:text-base text-inkMuted">
+            توصيل فوري داخل المدينة المنورة، وشحن منظم لكافة مناطق المملكة.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {/* Inside Madinah */}
-          <div className="rounded-3xl bg-emeraldSoft/85 border border-honeyGold/25 p-6 space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-honeyGold/20 flex items-center justify-center text-honeyLight">
+          <div className="rounded-xl bg-white border border-emeraldDeep/15 p-6 shadow-sm space-y-3">
+            <div className="w-11 h-11 rounded-lg bg-[#F9F6ED] border border-honeyGold/30 flex items-center justify-center text-honeyGold">
               <Zap className="w-5 h-5" />
             </div>
-            <h3 className="text-2xl font-bold text-honeyLight">داخل المدينة المنورة</h3>
-            <p className="text-sm text-creamBase/90 leading-relaxed">
-              التوصيل <strong>فوري</strong> مع احتساب رسوم التوصيل حسب الموقع المرسل
-              (ويمكنك تحديد موقعك عبر GPS مباشرة في السلة).
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-inkDark">
+              التوصيل داخل المدينة المنورة
+            </h3>
+            <p className="text-sm text-inkMuted leading-relaxed">
+              التوصيل <strong className="text-inkDark">فوري</strong> مع احتساب رسوم
+              التوصيل حسب الموقع المرسل (ويمكنك تحديد موقعك عبر GPS داخل السلة).
             </p>
-            <p className="text-xs text-honeyLight font-bold pt-1">
-              ✓ يتوفر الدفع عند الاستلام داخل المدينة المنورة فقط.
+            <p className="text-xs font-bold text-emeraldDeep pt-1">
+              ✓ يتوفر الدفع عند الاستلام أو التحويل البنكي.
             </p>
           </div>
 
           {/* Outside Madinah */}
-          <div className="rounded-3xl bg-emeraldSoft/85 border border-honeyGold/25 p-6 space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-honeyGold/20 flex items-center justify-center text-honeyLight">
+          <div className="rounded-xl bg-white border border-emeraldDeep/15 p-6 shadow-sm space-y-3">
+            <div className="w-11 h-11 rounded-lg bg-[#F9F6ED] border border-honeyGold/30 flex items-center justify-center text-honeyGold">
               <Truck className="w-5 h-5" />
             </div>
-            <h3 className="text-2xl font-bold text-honeyLight">خارج المدينة المنورة</h3>
-            <p className="text-sm text-creamBase/90 leading-relaxed">
-              التوصيل والشحن متاح إلى مختلف المناطق وتُحدد آليته وتكلفته بحسب المنطقة.
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-inkDark">
+              التوصيل خارج المدينة المنورة
+            </h3>
+            <p className="text-sm text-inkMuted leading-relaxed">
+              الشحن متاح إلى مختلف مناطق المملكة وتُحدد آليته وتكلفته حسب المنطقة
+              والوزن.
             </p>
-            <p className="text-xs text-amber-200 font-bold pt-1">
-              ✕ لا يتوفر الدفع عند الاستلام خارج المدينة؛ الدفع بالتحويل المسبق فقط.
+            <p className="text-xs font-bold text-inkDark pt-1">
+              ✕ الدفع خارج المدينة بالتحويل البنكي المسبق فقط.
             </p>
           </div>
 
-          {/* Bank Transfer */}
-          <div className="rounded-3xl bg-white text-inkDark p-6 space-y-3.5 shadow-luxury">
+          {/* Bank Transfer Frame */}
+          <div className="rounded-xl bg-white border-2 border-honeyGold/50 p-6 shadow-sm space-y-3.5">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-extrabold text-emeraldDeep">
+              <span className="text-xs font-extrabold text-honeyGold">
                 مصرف الراجحي
               </span>
               <Landmark className="w-5 h-5 text-honeyGold" />
             </div>
-            <h3 className="text-2xl font-bold text-emeraldDeep">بيانات التحويل البنكي</h3>
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-inkDark">
+              بيانات التحويل البنكي
+            </h3>
             <div className="text-sm space-y-2">
               <div>
                 <span className="text-inkMuted">الاسم للتحويل:</span>{' '}
-                <strong className="text-emeraldDeep">{BENEFICIARY_NAME}</strong>
+                <strong className="text-inkDark">{BENEFICIARY_NAME}</strong>
               </div>
-              <div className="bg-creamBase p-2.5 rounded-xl border border-emeraldDeep/15 flex items-center justify-between gap-2">
+              <div className="bg-creamCard p-2.5 rounded-lg border border-emeraldDeep/15 flex items-center justify-between gap-2">
                 <code
                   dir="ltr"
-                  className="text-xs font-bold text-emeraldDeep select-all tabular-nums"
+                  className="text-xs font-bold text-inkDark select-all tabular-nums"
                 >
                   {DEFAULT_IBAN}
                 </code>
                 <button
                   type="button"
                   onClick={handleCopyIban}
-                  className="min-h-[34px] px-3 py-1 rounded-lg bg-emeraldDeep text-honeyLight text-xs font-bold hover:bg-emeraldSoft transition cursor-pointer shrink-0 inline-flex items-center gap-1.5"
+                  className="min-h-[34px] px-3 py-1 rounded-lg bg-emeraldDeep text-white text-xs font-bold hover:bg-emeraldSoft transition cursor-pointer shrink-0 inline-flex items-center gap-1.5"
                 >
-                  {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copied ? (
+                    <Check className="w-3.5 h-3.5" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5" />
+                  )}
                   <span>{copied ? 'تم النسخ' : 'نسخ الآيبان'}</span>
                 </button>
               </div>
             </div>
             <p className="text-xs text-inkMuted leading-relaxed">
-              لتأكيد الطلب يرجى ترك رسالة أو تحويل مبلغ العسل المطلوب وإرسال الإيصال
-              والطلبات التي تودها عبر الواتساب.
+              لتأكيد الطلب يرجى تحويل مبلغ الطلب وإرسال صورة الإيصال عبر الواتساب.
             </p>
           </div>
         </div>

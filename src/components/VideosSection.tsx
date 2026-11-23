@@ -50,14 +50,14 @@ export function VideosSection() {
   return (
     <section
       id="videos-library"
-      className="py-16 sm:py-24 bg-white/70 border-t border-emeraldDeep/10"
+      className="py-16 sm:py-24 bg-creamCard border-b border-emeraldDeep/15"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 space-y-2 max-w-2xl">
-          <p className="text-xs sm:text-sm font-extrabold text-honeyGold">
+        <div className="mb-10 space-y-2 max-w-2xl">
+          <p className="text-xs sm:text-sm font-bold text-honeyGold">
             شاهد وتعرف عن قرب
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-emeraldDeep">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
             لقاءات ومقاطع من مناحل آمنة عبد الكريم
           </h2>
           <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
@@ -70,7 +70,7 @@ export function VideosSection() {
           {VIDEOS.map((video) => (
             <article
               key={video.id}
-              className="rounded-3xl bg-white border border-emeraldDeep/10 p-5 flex flex-col justify-between gap-4 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-luxury"
+              className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm p-5 flex flex-col justify-between gap-4"
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-xs font-bold">
@@ -80,7 +80,7 @@ export function VideosSection() {
                   </span>
                   <span className="text-inkMuted tabular-nums">{video.duration}</span>
                 </div>
-                <h3 className="text-xl font-bold text-emeraldDeep leading-snug">
+                <h3 className="font-display text-lg sm:text-xl font-bold text-inkDark leading-snug">
                   {video.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-inkMuted leading-relaxed">
@@ -88,12 +88,12 @@ export function VideosSection() {
                 </p>
               </div>
 
-              <div className="rounded-2xl overflow-hidden bg-[#24140A] border border-emeraldDeep/15">
+              <div className="rounded-lg overflow-hidden bg-[#2C2C2C] border border-emeraldDeep/15">
                 <video
                   controls
                   preload="metadata"
                   playsInline
-                  className="w-full h-[250px] object-contain bg-black block"
+                  className="w-full h-[240px] object-contain bg-black block"
                 >
                   <source src={video.src} type="video/mp4" />
                   متصفحك لا يدعم تشغيل الفيديو.
