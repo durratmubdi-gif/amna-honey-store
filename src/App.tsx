@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { HoneyAssistant } from './components/HoneyAssistant';
 import { ProductsSection } from './components/ProductsSection';
+import { VideosSection } from './components/VideosSection';
 import {
   WEIGHT_LABELS,
   formatDisplayPhone,
@@ -136,6 +137,7 @@ export default function App() {
           onAddToCart={handleAddToCart}
         />
         <DiarySection entries={store.diary} />
+        <VideosSection />
         <DeliverySection onShowToast={showToast} />
       </main>
 

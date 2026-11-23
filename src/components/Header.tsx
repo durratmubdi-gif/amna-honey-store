@@ -41,6 +41,12 @@ export function Header({ cartCount, onOpenCart }: HeaderProps) {
             يوميات المنحل
           </a>
           <a
+            href="#videos-library"
+            className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
+          >
+            لقاءات وفيديو
+          </a>
+          <a
             href="#delivery-info"
             className="whitespace-nowrap shrink-0 hover:text-honeyGold hover:underline underline-offset-8 transition-colors"
           >
