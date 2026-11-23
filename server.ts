@@ -140,6 +140,7 @@ ${productsText}
   });
 
   if (process.env.NODE_ENV !== 'production') {
+    app.use(express.static(path.resolve(__dirname, 'public'), { index: false }));
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
