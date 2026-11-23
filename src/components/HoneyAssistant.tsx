@@ -119,10 +119,32 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
         }),
       });
 
-      const data = (await response.json()) as {
-        reply?: string;
-        error?: string;
-      };
+      if (response.status === 404 || response.status === 405) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `faq_${Date.now()}`,
+            role: 'assistant',
+            text: buildStoreFaqAnswer(trimmed),
+          },
+        ]);
+        return;
+      }
+
+      let data: { reply?: string; error?: string } = {};
+      try {
+        data = (await response.json()) as { reply?: string; error?: string };
+      } catch {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `faq_${Date.now()}`,
+            role: 'assistant',
+            text: buildStoreFaqAnswer(trimmed),
+          },
+        ]);
+        return;
+      }
 
       if (!response.ok || !data.reply) {
         setMessages((prev) => [
