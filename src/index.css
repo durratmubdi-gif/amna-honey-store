@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-emeraldDeep: #163225;
-  --color-emeraldSoft: #224A38;
+  /* Rich Honey Brown, Warm Gold & Clean White Natural Palette */
+  --color-emeraldDeep: #3B2314;
+  --color-emeraldSoft: #5A3821;
   --color-honeyGold: #C59B27;
-  --color-honeyLight: #E5C158;
-  --color-creamBase: #FAF7F2;
+  --color-honeyLight: #E6C15A;
+  --color-creamBase: #FCF9F2;
   --color-creamCard: #FFFFFF;
-  --color-inkDark: #1A241F;
-  --color-inkMuted: #5C6B63;
+  --color-inkDark: #26160C;
+  --color-inkMuted: #6E5442;
 
   --font-display: "Amiri", Georgia, serif;
   --font-sans: "Tajawal", system-ui, -apple-system, sans-serif;
 
-  --shadow-luxury: 0 20px 45px -15px rgba(22, 50, 37, 0.12);
-  --shadow-goldGlow: 0 10px 25px -5px rgba(197, 155, 39, 0.32);
+  --shadow-luxury: 0 20px 45px -15px rgba(59, 35, 20, 0.14);
+  --shadow-goldGlow: 0 10px 25px -5px rgba(197, 155, 39, 0.34);
 }
 
 html {
@@ -23,12 +24,12 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #FAF7F2;
-  color: #1A241F;
+  background-color: #FCF9F2;
+  color: #26160C;
   overflow-x: hidden;
   background-image:
-    radial-gradient(circle at 15% 18%, rgba(197, 155, 39, 0.07) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(22, 50, 37, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 15% 18%, rgba(197, 155, 39, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(90, 56, 33, 0.05) 0%, transparent 50%);
 }
 
 h1, h2, h3, .font-display {
@@ -56,7 +57,7 @@ h1, h2, h3, .font-display {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1ECE1;
+  background: #F4EDE0;
 }
 
 ::-webkit-scrollbar-thumb {

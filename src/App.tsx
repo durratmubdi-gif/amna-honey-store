@@ -9,6 +9,7 @@ import { FaqSection } from './components/FaqSection';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { HoneyAssistant } from './components/HoneyAssistant';
+import { LegalSection } from './components/LegalSection';
 import { ProductsSection } from './components/ProductsSection';
 import { QuickOrderSection } from './components/QuickOrderSection';
 import { VideosSection } from './components/VideosSection';
@@ -153,19 +154,20 @@ export default function App() {
         <AboutTrustSection />
         <DiarySection entries={store.diary} />
         <VideosSection />
-        <FaqSection />
+        <FaqSection whatsapp={store.whatsapp} />
         <QuickOrderSection
           products={store.products}
           whatsapp={store.whatsapp}
           onShowToast={showToast}
         />
         <DeliverySection onShowToast={showToast} />
+        <LegalSection />
       </main>
 
-      {/* Footer with End-of-Page WhatsApp Action */}
-      <footer className="bg-[#10251B] text-creamBase/85 pt-8 pb-20 md:pb-8 border-t border-honeyGold/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
-          <div className="text-center sm:text-right">
+      {/* Footer with End-of-Page WhatsApp Action & Legal Links */}
+      <footer className="bg-[#29170C] text-creamBase/85 pt-8 pb-20 md:pb-8 border-t border-honeyGold/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm">
+          <div className="text-center md:text-right">
             <strong className="text-white">مناحل آمنة عبد الكريم</strong> — عسل سدرة
             المدينة المنورة وطلح وسمرة طبيعي 100% · واتساب:{' '}
             <span dir="ltr" className="tabular-nums">
@@ -173,7 +175,14 @@ export default function App() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#legal"
+              className="text-creamBase/80 hover:text-honeyLight underline underline-offset-4 whitespace-nowrap"
+            >
+              الخصوصية وشروط الاستخدام
+            </a>
+
             <a
               href={generalWhatsappUrl}
               target="_blank"
@@ -196,7 +205,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Mobile Sticky Bottom WhatsApp Bar (<= 15% mobile height cap combined with header) */}
+      {/* Mobile Sticky Bottom WhatsApp Bar */}
       <div className="md:hidden fixed bottom-0 inset-x-0 z-30 h-[54px] bg-emeraldDeep/95 backdrop-blur-md border-t border-honeyGold/30 px-4 flex items-center justify-between gap-3">
         <span className="text-xs font-bold text-creamBase truncate">
           عسل طبيعي 100% · توصيل فوري بالمدينة

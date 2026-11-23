@@ -1,6 +1,7 @@
 import { ChevronDown, MessageCircle, Plus } from 'lucide-react';
 import { useState } from 'react';
 import {
+  PRODUCTS_TRIO_IMAGE,
   WEIGHT_LABELS,
   WEIGHT_ORDER,
   buildWhatsappUrl,
@@ -15,6 +16,12 @@ interface ProductsSectionProps {
   onSelectWeight: (productId: string, weight: WeightKey) => void;
   onAddToCart: (productId: string) => void;
 }
+
+const COLOR_SWATCH: Record<string, { hex: string; label: string }> = {
+  sidr: { hex: '#D4A024', label: 'كهرماني ذهبي صافي' },
+  talh: { hex: '#9A4B1E', label: 'عنبر محمر دافئ' },
+  samra: { hex: '#4A2511', label: 'بني داكن ياقوتي' },
+};
 
 export function ProductsSection({
   products,
@@ -32,24 +39,100 @@ export function ProductsSection({
   return (
     <section
       id="products"
-      className="py-16 sm:py-24 bg-white/70 border-y border-emeraldDeep/10"
+      className="py-16 sm:py-24 bg-white/80 border-y border-emeraldDeep/10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
           <p className="text-xs sm:text-sm font-extrabold text-honeyGold">
-            تشكيلة العسل البلدي · مناحل آمنة عبد الكريم
+            تشكيلة المنتجات والأسعار
           </p>
           <h2 className="text-3xl sm:text-5xl font-bold text-emeraldDeep">
-            اختر نوع العسل والوزن المناسب
+            أنواع العسل البلدي وأوزانها
           </h2>
           <p className="text-sm sm:text-base text-inkMuted tabular-nums">
-            أسعار واضحة لجميع الأنواع:{' '}
-            <strong className="text-emeraldDeep">ربع كيلو (150 ر.س)</strong> ·{' '}
-            <strong className="text-emeraldDeep">نصف كيلو (250 ر.س)</strong> ·{' '}
-            <strong className="text-emeraldDeep">كيلو (400 ر.س)</strong>
+            أسعار موحّدة وواضحة لجميع الأنواع:{' '}
+            <strong className="text-emeraldDeep">ربع كيلو 150 ر.س</strong> |{' '}
+            <strong className="text-emeraldDeep">نصف كيلو 250 ر.س</strong> |{' '}
+            <strong className="text-emeraldDeep">كيلو 400 ر.س</strong>
           </p>
         </div>
 
+        {/* Visual Showcase Banner — Image 2: Three Honey Varieties & Color Guide */}
+        <div className="rounded-[2rem] bg-creamBase border border-emeraldDeep/15 overflow-hidden grid lg:grid-cols-12 items-stretch shadow-luxury">
+          <div className="lg:col-span-6 min-h-[260px] sm:min-h-[340px] bg-white">
+            <ResilientImage
+              src={PRODUCTS_TRIO_IMAGE}
+              alt="تشكيلة عسل سدرة بلدي وعسل طلح بلدي وعسل سمرة بلدي في عبوات زجاجية"
+              fallbackTitle="تشكيلة العسل الثلاثة"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-center space-y-5">
+            <div className="space-y-1.5">
+              <p className="text-xs font-extrabold text-honeyGold">
+                دليل الألوان والاختيار السريع
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-emeraldDeep">
+                الفرق بين السدرة والطلح والسمرة
+              </h3>
+            </div>
+
+            <div className="space-y-3.5 text-sm">
+              <div className="flex items-start gap-3 pb-3 border-b border-emeraldDeep/10">
+                <span
+                  aria-hidden="true"
+                  className="w-5 h-5 rounded-full shrink-0 mt-0.5 border border-black/10"
+                  style={{ backgroundColor: '#D4A024' }}
+                />
+                <div>
+                  <div className="font-extrabold text-emeraldDeep">
+                    عسل سدرة بلدي — <span className="text-honeyGold">كهرماني ذهبي</span>
+                  </div>
+                  <p className="text-xs text-inkMuted mt-0.5">
+                    قوام غني ونكهة عطرية ناعمة محببة؛ ربع كيلو 150 ر.س | نصف كيلو 250 ر.س |
+                    كيلو 400 ر.س
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 pb-3 border-b border-emeraldDeep/10">
+                <span
+                  aria-hidden="true"
+                  className="w-5 h-5 rounded-full shrink-0 mt-0.5 border border-black/10"
+                  style={{ backgroundColor: '#9A4B1E' }}
+                />
+                <div>
+                  <div className="font-extrabold text-emeraldDeep">
+                    عسل طلح بلدي — <span className="text-honeyGold">عنبر محمر دافئ</span>
+                  </div>
+                  <p className="text-xs text-inkMuted mt-0.5">
+                    نكهة برية متوازنة مريحة للمعدة وللاستخدام اليومي (نفس الأسعار).
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span
+                  aria-hidden="true"
+                  className="w-5 h-5 rounded-full shrink-0 mt-0.5 border border-black/10"
+                  style={{ backgroundColor: '#4A2511' }}
+                />
+                <div>
+                  <div className="font-extrabold text-emeraldDeep">
+                    عسل سمرة بلدي — <span className="text-honeyGold">بني داكن ياقوتي</span>
+                  </div>
+                  <p className="text-xs text-inkMuted mt-0.5">
+                    طابع جبلي عميق غني بالمعادن ومضادات الأكسدة (نفس الأسعار).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 Product Cards */}
         <div className="grid md:grid-cols-3 gap-7 lg:gap-8">
           {products.map((prod) => {
             const currentWeight: WeightKey = selectedWeights[prod.id] || 'kilo';
@@ -60,29 +143,33 @@ export function ProductsSection({
               `السلام عليكم، أود طلب ${prod.name} - ${weightLabel} بسعر ${currentPrice} ريال`
             );
             const isExpanded = Boolean(expandedIds[prod.id]);
+            const swatch = COLOR_SWATCH[prod.id] || {
+              hex: '#C59B27',
+              label: 'لون طبيعي أصيل',
+            };
 
             return (
               <article
                 key={prod.id}
-                className="group rounded-3xl bg-white border border-emeraldDeep/10 overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-luxury"
+                className="rounded-3xl bg-white border border-emeraldDeep/15 overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-luxury"
               >
                 <div>
-                  <div className="aspect-[4/3] overflow-hidden bg-creamBase">
-                    <ResilientImage
-                      src={prod.image}
-                      alt={prod.imageAlt || prod.name}
-                      fallbackTitle={prod.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                    />
-                  </div>
+                  {/* Clean Honey Color & Origin Header */}
+                  <div
+                    className="h-3 w-full"
+                    style={{ backgroundColor: swatch.hex }}
+                  />
 
                   <div className="p-5 sm:p-6 space-y-4">
                     <div>
-                      <div className="flex items-center gap-2 text-xs font-bold">
-                        <span className="text-honeyGold">{prod.subtitle}</span>
-                        <span aria-hidden="true" className="text-inkMuted">
-                          ·
+                      <div className="flex items-center justify-between gap-2 text-xs font-bold">
+                        <span className="inline-flex items-center gap-1.5 text-inkMuted">
+                          <span
+                            aria-hidden="true"
+                            className="w-3 h-3 rounded-full border border-black/15 shrink-0"
+                            style={{ backgroundColor: swatch.hex }}
+                          />
+                          <span>{swatch.label}</span>
                         </span>
                         <span
                           className={
@@ -92,7 +179,7 @@ export function ProductsSection({
                           {prod.available ? 'متوفر الآن' : 'نفدت الكمية حالياً'}
                         </span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-emeraldDeep mt-1">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-emeraldDeep mt-2">
                         {prod.name}
                       </h3>
                       <p className="text-xs sm:text-sm text-inkMuted mt-2 leading-relaxed">
@@ -117,7 +204,7 @@ export function ProductsSection({
                           />
                         </button>
                         {isExpanded && (
-                          <dl className="mt-2.5 space-y-2 text-xs text-inkMuted bg-creamBase/80 rounded-2xl p-3.5 border border-emeraldDeep/10">
+                          <dl className="mt-2.5 space-y-2 text-xs text-inkMuted bg-creamBase rounded-2xl p-3.5 border border-emeraldDeep/10">
                             <div>
                               <dt className="font-bold text-emeraldDeep inline">
                                 المذاق:{' '}

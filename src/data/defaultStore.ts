@@ -1,19 +1,18 @@
-import heroShowcaseImg from '../assets/images/hero_honey_showcase_1795418459891.jpg';
-import sidrHoneyImg from '../assets/images/product_sidr_honey_1795418460488.jpg';
-import talhHoneyImg from '../assets/images/product_talh_honey_1795418460384.jpg';
-import samraHoneyImg from '../assets/images/product_samra_honey_1795418460790.jpg';
-import diaryHivesImg from '../assets/images/diary_apiary_hives_1795418460711.jpg';
-import diaryHarvestImg from '../assets/images/diary_honey_harvest_1795418461563.jpg';
-import amnaPortraitImg from '../assets/images/beekeeper_amna_portrait_1795427164470.jpg';
-import type { FaqItem, ReviewItem, StoreState, WeightKey } from '../types';
+import coverMadinahImg from '../assets/images/cover_madinah_honey_gold_1795430455728.jpg';
+import productsTrioImg from '../assets/images/products_trio_gold_brown_1795430455200.jpg';
+import trustCertImg from '../assets/images/trust_certificate_honey_gold_1795430456485.jpg';
+import faqHoneyImg from '../assets/images/faq_honey_clarity_visual_1795430455710.jpg';
+import type { FaqItem, Product, ReviewItem, StoreState, WeightKey } from '../types';
 
 export const STORAGE_KEY = 'amna_honey_store_v1';
 export const DEFAULT_IBAN = 'SA09 8000 0272 6080 1030 2900';
 export const BENEFICIARY_NAME = 'آمنة عبد الكريم';
 
-export const HERO_SHOWCASE_IMAGE = heroShowcaseImg;
-export const DIARY_DEFAULT_IMAGE = diaryHivesImg;
-export const AMNA_PORTRAIT_IMAGE = amnaPortraitImg;
+export const HERO_SHOWCASE_IMAGE = coverMadinahImg;
+export const PRODUCTS_TRIO_IMAGE = productsTrioImg;
+export const TRUST_CERT_IMAGE = trustCertImg;
+export const FAQ_HONEY_IMAGE = faqHoneyImg;
+export const DIARY_DEFAULT_IMAGE = coverMadinahImg;
 
 export const WEIGHT_LABELS: Record<WeightKey, string> = {
   quarter: 'ربع كيلو',
@@ -55,26 +54,38 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-natural',
     question: 'هل العسل طبيعي 100%؟',
     answer:
-      'نعم، جميع أعسال مناحل آمنة عبد الكريم طبيعية 100% من إنتاج مناحل بلدية مرخصة، تُفرز على البارد دون أي إضافات أو تغذية صناعية، مع ضمان استرداد المبلغ كاملاً إذا ثبت غير ذلك.',
+      'نعم، 100% من مناحلنا مباشرة دون أي إضافات أو تسخين أو تغذية صناعية، مع ضمان استرداد المبلغ كاملاً عند عدم الرضا.',
+  },
+  {
+    id: 'faq-payment',
+    question: 'كيف يتم الدفع؟',
+    answer:
+      'داخل المدينة المنورة يتوفر الدفع عند الاستلام أو التحويل البنكي. وللمناطق الأخرى خارج المدينة يتم الدفع بالتحويل البنكي المسبق فقط.',
   },
   {
     id: 'faq-delivery',
-    question: 'ما مدة التوصيل؟ وهل الدفع عند الاستلام متاح؟',
+    question: 'ما مدة التوصيل؟',
     answer:
-      'داخل المدينة المنورة التوصيل فوري في نفس اليوم وتتوفر خدمة الدفع عند الاستلام أو التحويل البنكي. خارج المدينة المنورة يتم التوصيل خلال 2 إلى 4 أيام عمل والدفع بالتحويل البنكي المسبق فقط.',
+      'داخل المدينة المنورة التوصيل فوري في نفس اليوم مع تحديد الرسوم حسب الموقع، وخارج المدينة المنورة يُشحن الطلب حسب المنطقة خلال 2 إلى 4 أيام عمل.',
   },
   {
     id: 'faq-quality',
-    question: 'كيف أضمن جودة المنتج؟',
+    question: 'كيف أضمن جودة المنتج وسياسة الاسترجاع؟',
     answer:
-      'المناحل حاصلة على رخصة النحال وترخيص المنحل المتنقل المعتمد من وزارة البيئة والمياه والزراعة، ويتم تتبع موسم كل زهرة وفحص القوام والنقاء قبل التعبئة مباشرة.',
+      'المناحل مرخصة رسمياً من وزارة البيئة والمياه والزراعة، ونلتزم باسترجاع المنتج واسترداد المبلغ كاملاً إذا ثبت أي خلل في النقاء أو الجودة.',
   },
-  {
-    id: 'faq-return',
-    question: 'ما سياسة الاسترجاع؟',
-    answer:
-      'رضاك وأمانة اللقمة أولوية: في حال وجود أي ملاحظة على جودة العسل أو عدم مطابقته للمواصفات الطبيعية، يُسترجع المنتج ويُرد المبلغ كاملاً فوراً دون تعقيد.',
-  },
+];
+
+const OLD_ASSET_MARKERS = [
+  'unsplash.com',
+  '/src/assets/images/',
+  'beekeeper_amna_portrait',
+  'hero_honey_showcase',
+  'product_sidr_honey',
+  'product_talh_honey',
+  'product_samra_honey',
+  'diary_apiary_hives',
+  'diary_honey_harvest',
 ];
 
 export const defaultStoreState: StoreState = {
@@ -84,11 +95,11 @@ export const defaultStoreState: StoreState = {
     {
       id: 'sidr',
       name: 'عسل سدرة بلدي',
-      subtitle: 'قوام غني ونكهة أصيلة',
+      subtitle: 'كهرماني ذهبي · قوام غني ونكهة أصيلة',
       description:
-        'عسل سدرة طبيعي مختار بعناية، يتميز بقوامه الفاخر وطعمه الأصيل الذي يفضله عشاق العسل البلدي في المدينة المنورة وخارجها.',
+        'عسل سدرة طبيعي مختار بعناية من أزهار السدر البري، يتميز بلونه الذهبي الكهرماني وطعمه الأصيل.',
       available: true,
-      image: sidrHoneyImg,
+      image: productsTrioImg,
       imageAlt: 'عسل سدرة المدينة المنورة بلدي صافي من مناحل آمنة عبد الكريم',
       prices: {
         quarter: 150,
@@ -97,7 +108,7 @@ export const defaultStoreState: StoreState = {
       },
       details: {
         taste: 'حلاوة متوازنة مع نفحة أزهار السدر الدافئة وعبق عطري مميز',
-        color: 'كهرماني ذهبي داكن يزداد عمقاً مع النضج الطبيعي',
+        color: 'كهرماني ذهبي صافي يزداد عمقاً مع النضج الطبيعي',
         benefits: 'يمد الجسم بطاقة صباحية لطيفة ويدعم المناعة اليومية والنشاط العام',
         season: 'موسم تزهير أشجار السدر البري في الأودية والشعاب',
         usageAndStorage:
@@ -107,11 +118,11 @@ export const defaultStoreState: StoreState = {
     {
       id: 'talh',
       name: 'عسل طلح بلدي',
-      subtitle: 'نكهة برية مميزة وقيمة عالية',
+      subtitle: 'عنبر محمر · نكهة برية مميزة',
       description:
-        'عسل طلح طبيعي بنكهته البرية المميزة وقوامه المتوازن، يُعد من الخيارات المحبوبة للاستخدام اليومي المتواصل.',
+        'عسل طلح طبيعي بنكهته البرية المميزة ولونه العنبري الدافئ وقوامه المتوازن للاستخدام اليومي.',
       available: true,
-      image: talhHoneyImg,
+      image: productsTrioImg,
       imageAlt: 'عسل طلح أصلي من مناحل بلدية طبيعية في المدينة المنورة',
       prices: {
         quarter: 150,
@@ -130,11 +141,11 @@ export const defaultStoreState: StoreState = {
     {
       id: 'samra',
       name: 'عسل سمرة بلدي',
-      subtitle: 'لون داكن وطابع جبلي أصيل',
+      subtitle: 'بني داكن ياقوتي · طابع جبلي أصيل',
       description:
-        'عسل سمرة بلدي ذو لون داكن غني وحضور مميز، يجمع بين العراقة والعناية المباشرة بالخلايا.',
+        'عسل سمرة بلدي ذو لون بني داكن غني وحضور مميز، يجمع بين العراقة والعناية المباشرة بالخلايا.',
       available: true,
-      image: samraHoneyImg,
+      image: productsTrioImg,
       imageAlt: 'عسل سمرة طبيعي داكن من مناحل بلدية معتمدة في المدينة المنورة',
       prices: {
         quarter: 150,
@@ -157,7 +168,7 @@ export const defaultStoreState: StoreState = {
       tag: 'رعاية النحل',
       title: 'تفقد الخلايا وتهيئة بيئة النحل',
       desc: 'متابعة دورية لخلايا النحل والاطمئنان على نشاطها وصحتها لضمان موسم إنتاج نظيف ومتوازن.',
-      image: diaryHivesImg,
+      image: coverMadinahImg,
       imageAlt: 'خلايا مناحل بلدية خشبية في المدينة المنورة بإشراف آمنة عبد الكريم',
     },
     {
@@ -165,7 +176,7 @@ export const defaultStoreState: StoreState = {
       tag: 'فرز وتعبئة',
       title: 'فرز العسل وتعبئته بأمانة',
       desc: 'الاهتمام بنظافة الأدوات والعبوات والحفاظ على خصائص العسل الطبيعية دون تدخل يخل بجودته.',
-      image: diaryHarvestImg,
+      image: productsTrioImg,
       imageAlt: 'فرز وتعبئة عسل سدرة المدينة المنورة وعسل طلح أصلي بأمانة',
     },
     {
@@ -173,11 +184,30 @@ export const defaultStoreState: StoreState = {
       tag: 'خدمة العملاء',
       title: 'تجهيز الطلبات وتوصيلها بسرعة',
       desc: 'توصيل فوري داخل المدينة المنورة مع إمكانية الدفع عند الاستلام، وشحن منظم لخارج المدينة.',
-      image: heroShowcaseImg,
+      image: faqHoneyImg,
       imageAlt: 'تجهيز عبوات عسل سمرة طبيعي وعسل سدرة للتوصيل الفوري',
     },
   ],
 };
+
+export function deduplicateProducts(products: Product[]): Product[] {
+  const seenIds = new Set<string>();
+  const seenNames = new Set<string>();
+  const result: Product[] = [];
+
+  for (const prod of products) {
+    const cleanId = (prod.id || '').trim().toLowerCase();
+    const cleanName = (prod.name || '').trim();
+    if (!cleanName || seenIds.has(cleanId) || seenNames.has(cleanName)) {
+      continue;
+    }
+    seenIds.add(cleanId);
+    seenNames.add(cleanName);
+    result.push(prod);
+  }
+
+  return result;
+}
 
 export function formatDisplayPhone(waNumber?: string): string {
   const cleaned = (waNumber || '').replace(/\D/g, '');
@@ -194,10 +224,7 @@ export function buildWhatsappUrl(waNumber: string, text: string): string {
 
 function shouldReplaceImagePath(image?: string): boolean {
   if (!image) return true;
-  return (
-    image.includes('unsplash.com') ||
-    image.startsWith('/src/assets/images/')
-  );
+  return OLD_ASSET_MARKERS.some((marker) => image.includes(marker));
 }
 
 export function loadStoreState(): StoreState {
@@ -206,7 +233,7 @@ export function loadStoreState(): StoreState {
     if (!raw) return structuredClone(defaultStoreState);
     const parsed = JSON.parse(raw) as Partial<StoreState>;
 
-    const products =
+    const mergedProducts =
       Array.isArray(parsed.products) && parsed.products.length > 0
         ? parsed.products.map((p) => {
             const fallback = defaultStoreState.products.find((d) => d.id === p.id);
@@ -221,6 +248,8 @@ export function loadStoreState(): StoreState {
             };
           })
         : structuredClone(defaultStoreState.products);
+
+    const products = deduplicateProducts(mergedProducts);
 
     const diary =
       Array.isArray(parsed.diary) && parsed.diary.length > 0
@@ -237,7 +266,7 @@ export function loadStoreState(): StoreState {
     return {
       whatsapp: parsed.whatsapp || defaultStoreState.whatsapp,
       adminPass: parsed.adminPass || defaultStoreState.adminPass,
-      products,
+      products: products.length > 0 ? products : structuredClone(defaultStoreState.products),
       diary,
     };
   } catch {

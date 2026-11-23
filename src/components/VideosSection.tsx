@@ -88,7 +88,7 @@ export function VideosSection() {
                 </p>
               </div>
 
-              <div className="rounded-2xl overflow-hidden bg-[#0E1E17] border border-emeraldDeep/15">
+              <div className="rounded-2xl overflow-hidden bg-[#24140A] border border-emeraldDeep/15">
                 <video
                   controls
                   preload="metadata"

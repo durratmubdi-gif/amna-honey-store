@@ -4,6 +4,7 @@ import {
   WEIGHT_LABELS,
   WEIGHT_ORDER,
   buildWhatsappUrl,
+  deduplicateProducts,
 } from '../data/defaultStore';
 import type { Product, WeightKey } from '../types';
 
@@ -18,28 +19,27 @@ export function QuickOrderSection({
   whatsapp,
   onShowToast,
 }: QuickOrderSectionProps) {
+  const uniqueProducts = useMemo(() => deduplicateProducts(products), [products]);
   const availableProducts = useMemo(
-    () => products.filter((p) => p.available),
-    [products]
+    () => uniqueProducts.filter((p) => p.available),
+    [uniqueProducts]
   );
-  const selectableProducts =
-    availableProducts.length > 0 ? availableProducts : products;
 
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
   const [selectedProductId, setSelectedProductId] = useState<string>(
-    selectableProducts[0]?.id || 'sidr'
+    availableProducts[0]?.id || uniqueProducts[0]?.id || 'sidr'
   );
   const [selectedWeight, setSelectedWeight] = useState<WeightKey>('kilo');
   const [notes, setNotes] = useState('');
 
   const selectedProduct = useMemo(
     () =>
-      products.find((p) => p.id === selectedProductId) ||
-      selectableProducts[0] ||
-      products[0],
-    [products, selectableProducts, selectedProductId]
+      uniqueProducts.find((p) => p.id === selectedProductId) ||
+      availableProducts[0] ||
+      uniqueProducts[0],
+    [availableProducts, selectedProductId, uniqueProducts]
   );
 
   const unitPrice = selectedProduct?.prices[selectedWeight] ?? 400;
@@ -164,6 +164,7 @@ export function QuickOrderSection({
             />
           </div>
 
+          {/* Deduplicated Product & Clean Non-Repeated Weight Selection */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <label
@@ -178,7 +179,7 @@ export function QuickOrderSection({
                 onChange={(e) => setSelectedProductId(e.target.value)}
                 className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-white border border-emeraldDeep/15 text-sm font-bold text-emeraldDeep focus:outline-none focus:border-honeyGold"
               >
-                {products.map((prod) => (
+                {uniqueProducts.map((prod) => (
                   <option key={prod.id} value={prod.id} disabled={!prod.available}>
                     {prod.name}
                     {!prod.available ? ' (غير متوفر حالياً)' : ''}
@@ -188,24 +189,28 @@ export function QuickOrderSection({
             </div>
 
             <div>
-              <label
-                htmlFor="quick-weight"
-                className="block text-xs sm:text-sm font-bold text-emeraldDeep mb-1.5"
-              >
-                الوزن والسعر
-              </label>
-              <select
-                id="quick-weight"
-                value={selectedWeight}
-                onChange={(e) => setSelectedWeight(e.target.value as WeightKey)}
-                className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-white border border-emeraldDeep/15 text-sm font-bold text-emeraldDeep tabular-nums focus:outline-none focus:border-honeyGold"
-              >
-                {WEIGHT_ORDER.map((wKey) => (
-                  <option key={wKey} value={wKey}>
-                    {WEIGHT_LABELS[wKey]} — {selectedProduct?.prices[wKey] ?? 0} ريال
-                  </option>
-                ))}
-              </select>
+              <span className="block text-xs sm:text-sm font-bold text-emeraldDeep mb-1.5">
+                الوزن المطلوب
+              </span>
+              <div className="grid grid-cols-3 gap-2">
+                {WEIGHT_ORDER.map((wKey) => {
+                  const active = selectedWeight === wKey;
+                  return (
+                    <button
+                      key={wKey}
+                      type="button"
+                      onClick={() => setSelectedWeight(wKey)}
+                      className={`min-h-[46px] px-2 py-2 rounded-xl border text-xs font-extrabold transition cursor-pointer whitespace-nowrap ${
+                        active
+                          ? 'bg-emeraldDeep text-honeyLight border-emeraldDeep'
+                          : 'bg-white text-emeraldDeep border-emeraldDeep/15 hover:border-honeyGold'
+                      }`}
+                    >
+                      {WEIGHT_LABELS[wKey]}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -226,12 +231,24 @@ export function QuickOrderSection({
             />
           </div>
 
-          <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-emeraldDeep/10">
-            <div className="text-sm">
-              <span className="text-inkMuted">السعر المختار:</span>{' '}
-              <strong className="text-2xl font-extrabold text-emeraldDeep tabular-nums">
-                {unitPrice} ريال
-              </strong>
+          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-emeraldDeep/10">
+            <div className="space-y-0.5">
+              <div className="text-sm">
+                <span className="text-inkMuted">الإجمالي المطلوب:</span>{' '}
+                <strong className="text-2xl font-extrabold text-emeraldDeep tabular-nums">
+                  {unitPrice} ريال
+                </strong>
+              </div>
+              <p className="text-[11px] text-inkMuted">
+                بإرسالك للطلب فأنت توافق على{' '}
+                <a
+                  href="#legal"
+                  className="text-emeraldDeep font-bold underline underline-offset-4 hover:text-honeyGold"
+                >
+                  سياسة الخصوصية وشروط الاستخدام
+                </a>
+                .
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2.5">
