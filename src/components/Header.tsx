@@ -27,21 +27,21 @@ export function Header({
   };
 
   return (
-    <header className="sticky top-0 z-40 glass-twilight border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-8">
+    <header className="sticky top-0 z-40 glass-twilight border-b w-full max-w-full">
+      <div className="topbar max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-8">
         {/* Zone 1: Brand Wordmark with Cleaned Logo */}
         <a
           href="#/"
           onClick={(e) => handleSectionLink(e)}
-          className="inline-flex items-center gap-3 font-display text-lg sm:text-xl font-extrabold text-[#FFF8F0] whitespace-nowrap shrink-0 hover:text-[#F5D38C] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5D38C] rounded-lg"
+          className="brand-title inline-flex items-center gap-2 sm:gap-3 font-display text-[16px] sm:text-xl font-extrabold text-[#FFF8F0] whitespace-nowrap min-w-0 hover:text-[#F5D38C] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5D38C] rounded-lg"
         >
           <img
             src={CLEANED_APIARY_LOGO}
             alt="شعار مناحل بنت المدينة للعسل الطبيعي"
             referrerPolicy="no-referrer"
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover bg-[#FFF9F0] border border-[#F5D38C]/75 shadow-sm shrink-0"
+            className="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover bg-[#FFF9F0] border border-[#F5D38C]/75 shadow-sm shrink-0"
           />
-          <span>مناحل آمنة عبد الكريم</span>
+          <span className="truncate">مناحل آمنة عبد الكريم</span>
         </a>
 
         {/* Zone 2: Clean Single-Line Nav Links */}
@@ -84,7 +84,7 @@ export function Header({
           <button
             type="button"
             onClick={onOpenCart}
-            className="inline-flex items-center gap-2.5 min-h-[42px] px-4 sm:px-5 py-2 rounded-xl btn-honey-glow text-white font-bold text-xs sm:text-sm active:scale-[0.98] transition cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5D38C]"
+            className="cart-btn inline-flex items-center gap-2 min-h-[38px] sm:min-h-[42px] px-3 py-1.5 sm:px-5 sm:py-2 rounded-xl btn-honey-glow text-white font-bold text-[13px] sm:text-sm active:scale-[0.98] transition cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5D38C]"
           >
             <ShoppingBag className="w-4 h-4 shrink-0" />
             <span>السلة</span>

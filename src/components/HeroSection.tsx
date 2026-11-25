@@ -20,7 +20,7 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
   return (
     <section
       id="story"
-      className="relative w-full overflow-hidden border-b border-[#F3D598]/25"
+      className="hero relative w-full overflow-hidden border-b border-[#F3D598]/25"
     >
       {/* Full-Width Enchanted Golden Honey Banner */}
       <div className="relative min-h-[540px] sm:min-h-[600px] flex items-center">
@@ -37,19 +37,19 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
         {/* Balanced rose-plum twilight contrast scrim preserving waterfall & floral visibility */}
         <div className="absolute inset-0 bg-gradient-to-l from-[#331B22]/86 via-[#44252C]/52 to-[#3D2229]/28" />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="hero-container relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Hero Headline & Primary CTAs */}
-            <div className="lg:col-span-7 space-y-6 text-right">
-              <p className="text-sm sm:text-base font-bold text-[#F7D78C] drop-shadow-xs">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center sm:text-right">
+              <p className="text-[14.5px] sm:text-base font-bold text-[#F7D78C] drop-shadow-xs max-w-full">
                 مناحل آمنة عبد الكريم — المدينة المنورة — عسل طبيعي 100%
               </p>
 
-              <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-[#FFF9F2] leading-[1.24] drop-shadow-sm">
+              <h1 className="font-display text-[28px] leading-[1.35] sm:text-5xl lg:text-[3.25rem] font-extrabold text-[#FFF9F2] sm:leading-[1.24] drop-shadow-sm break-words">
                 أمانة اليد، وصفاء الطبيعة في كل قطرة عسل
               </h1>
 
-              <p className="text-base sm:text-lg text-[#F9EFE3] leading-relaxed max-w-xl">
+              <p className="text-[14.5px] sm:text-lg text-[#F9EFE3] leading-relaxed max-w-full sm:max-w-xl">
                 عسل سدرة بلدي، وعسل طلح أصلي، وعسل سمرة طبيعي من مناحلنا الميدانية في
                 المدينة المنورة بإشراف مباشر وترخيص معتمد من وزارة البيئة والمياه والزراعة.
               </p>
@@ -75,7 +75,7 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
               </div>
 
               {/* Concise Bottom Trust Markers */}
-              <div className="pt-4 border-t border-[#F7D78C]/25 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm font-bold text-[#FFF6E8]">
+              <div className="pt-4 border-t border-[#F7D78C]/25 flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-xs sm:text-sm font-bold text-[#FFF6E8]">
                 <span className="inline-flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-[#F7D78C] shrink-0" />
                   <span>طبيعي 100%</span>
@@ -99,7 +99,7 @@ export function HeroSection({ whatsapp }: HeroSectionProps) {
 
             {/* Cleaned Brand Emblem Showcase Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="glass-enchanted rounded-2xl p-4 sm:p-5 max-w-[320px] sm:max-w-[350px] w-full text-center space-y-3">
+              <div className="glass-enchanted rounded-2xl p-4 sm:p-5 max-w-[300px] sm:max-w-[350px] w-full text-center space-y-3">
                 <div className="aspect-square rounded-xl overflow-hidden bg-[#FFF9F0] border border-[#EBC28E]/70 shadow-sm">
                   <ResilientImage
                     src={CLEANED_APIARY_LOGO}

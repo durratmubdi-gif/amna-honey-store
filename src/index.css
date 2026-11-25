@@ -18,6 +18,21 @@
   --shadow-goldGlow: 0 8px 22px -6px rgba(184, 123, 36, 0.45);
 }
 
+@layer base {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -26,7 +41,45 @@ body {
   font-family: var(--font-sans);
   background-color: #3D252C;
   color: #331B16;
-  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  header,
+  .topbar {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 8px;
+    max-width: 100vw;
+  }
+
+  .brand-title {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .cart-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .hero-container {
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  .hero p {
+    font-size: 14.5px;
+    max-width: 100%;
+  }
 }
 
 h1, h2, h3, .font-display {
