@@ -180,16 +180,25 @@ export default function App() {
       {/* Persistent Enchanted Golden Honey & Rose-Plum Ambient Backdrop */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 -z-10 pointer-events-none overflow-hidden"
+        className="fixed inset-0 -z-10 bg-[#3D252C] pointer-events-none overflow-hidden"
       >
         <img
           src={ENCHANTED_BACKDROP_IMAGE}
           alt=""
           referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center scale-105 opacity-85"
+          className="w-full h-full object-cover object-center opacity-90"
         />
         <EnchantedMotionLayer variant="ambient" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3E242C]/66 via-[#664148]/56 to-[#321C22]/78" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3E242C]/50 via-[#664148]/42 to-[#321C22]/64" />
+      </div>
+
+      {/* Floating Background Flowers */}
+      <div className="flower-bg" aria-hidden="true">
+        <div className="flower flower-1" />
+        <div className="flower flower-2" />
+        <div className="flower flower-3" />
+        <div className="flower flower-4" />
+        <div className="flower flower-5" />
       </div>
 
       {/* Toast Notification */}
@@ -197,9 +206,9 @@ export default function App() {
         <div
           role="status"
           aria-live="polite"
-          className="fixed top-5 left-1/2 -translate-x-1/2 z-[100] pointer-events-none"
+          className="fixed top-5 left-1/2 -translate-x-1/2 z-[100] pointer-events-none max-w-[92vw]"
         >
-          <div className="glass-twilight text-white px-5 py-3 rounded-xl shadow-luxury border border-[#F5D38C]/50 flex items-center gap-2 text-xs sm:text-sm font-medium whitespace-nowrap">
+          <div className="glass-twilight text-white px-4 py-2.5 rounded-xl shadow-luxury border border-[#F5D38C]/50 flex items-center gap-2 text-xs sm:text-sm font-medium text-center">
             <CheckCircle2 className="w-4 h-4 text-[#F7D78C] shrink-0" />
             <span>{toastMessage}</span>
           </div>
@@ -212,7 +221,7 @@ export default function App() {
         onNavigateHome={() => setRoute('home')}
       />
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-[1] bg-transparent">
         {route === 'privacy' || route === 'terms' ? (
           <LegalPage
             mode={route}
@@ -253,7 +262,7 @@ export default function App() {
       </main>
 
       {/* Section 8: Unified Footer */}
-      <footer className="glass-twilight text-[#FFF8EE]/90 pt-10 pb-20 md:pb-10 border-t border-[#F3D598]/30">
+      <footer className="relative z-[1] glass-twilight text-[#FFF8EE]/90 pt-10 pb-20 md:pb-10 border-t border-[#F3D598]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-6 border-b border-white/15">
             {/* Brand Logo + Quick Links */}

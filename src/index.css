@@ -31,16 +31,30 @@
   *::after {
     box-sizing: inherit;
   }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #3D252C;
 }
 
 body {
+  position: relative;
   font-family: var(--font-sans);
-  background-color: #3D252C;
+  background: transparent;
   color: #331B16;
+}
+
+main,
+section {
+  background: transparent;
 }
 
 @media (max-width: 640px) {
@@ -53,31 +67,47 @@ body {
   }
 
   .brand-title {
-    font-size: 16px;
+    font-size: 15px;
     white-space: nowrap;
   }
 
   .cart-btn {
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 6px 10px;
+    font-size: 12.5px;
     flex-shrink: 0;
   }
 
+  main section {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  main section h2 {
+    font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  main section h3 {
+    font-size: 1.125rem;
+  }
+
   .hero-container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
     text-align: center;
     width: 100%;
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.35;
     overflow-wrap: break-word;
   }
 
   .hero p {
-    font-size: 14.5px;
+    font-size: 14px;
     max-width: 100%;
   }
 }
@@ -91,12 +121,12 @@ h1, h2, h3, .font-display {
   font-variant-numeric: tabular-nums;
 }
 
-/* Frosted Pearl-Rose Glass Surface matching the reference UI cards */
+/* Frosted Pearl-Rose Glass Surface allowing animated background & flowers to shine softly through */
 .glass-enchanted {
-  background-color: rgba(255, 248, 241, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(246, 213, 166, 0.72);
+  background-color: rgba(255, 248, 241, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(246, 213, 166, 0.75);
   box-shadow:
     0 12px 32px -10px rgba(54, 24, 24, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.85);
@@ -294,6 +324,72 @@ h1, h2, h3, .font-display {
   animation: beeWingFlutter 0.22s ease-in-out infinite;
   transform-box: fill-box;
   transform-origin: bottom center;
+}
+
+.flower-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.flower {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='%23F9C1B6'%3E%3Cellipse cx='60' cy='28' rx='16' ry='26'/%3E%3Cellipse cx='60' cy='28' rx='16' ry='26' transform='rotate(72 60 60)'/%3E%3Cellipse cx='60' cy='28' rx='16' ry='26' transform='rotate(144 60 60)'/%3E%3Cellipse cx='60' cy='28' rx='16' ry='26' transform='rotate(216 60 60)'/%3E%3Cellipse cx='60' cy='28' rx='16' ry='26' transform='rotate(288 60 60)'/%3E%3C/g%3E%3Ccircle cx='60' cy='60' r='11' fill='%23F9D77E'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.34;
+  transform: translateY(110vh);
+  animation: floatFlower 15s infinite ease-in-out;
+}
+
+.flower-1 {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.flower-2 {
+  left: 30%;
+  animation-delay: 3s;
+  width: 50px;
+  height: 50px;
+}
+
+.flower-3 {
+  left: 50%;
+  animation-delay: 6s;
+  width: 35px;
+  height: 35px;
+}
+
+.flower-4 {
+  left: 70%;
+  animation-delay: 9s;
+  width: 45px;
+  height: 45px;
+}
+
+.flower-5 {
+  left: 90%;
+  animation-delay: 12s;
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes floatFlower {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

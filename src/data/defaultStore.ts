@@ -1,14 +1,13 @@
 import heroWideImg from '../assets/images/hero_madinah_apiary_wide_1795431021299.jpg';
-import sidrJarImg from '../assets/images/product_sidr_jar_1795431021149.jpg';
-import talhJarImg from '../assets/images/product_talh_jar_1795431021377.jpg';
-import samraJarImg from '../assets/images/product_samra_jar_1795431022463.jpg';
+import sidrJarImg from '../assets/images/real_sidr_enhanced_1795621718975.jpg';
+import talhJarImg from '../assets/images/real_talh_enhanced_1795621719067.jpg';
+import samraJarImg from '../assets/images/real_trio_roses_enhanced_1795621720113.jpg';
+import duoTreeJarsImg from '../assets/images/real_duo_tree_enhanced_1795621721821.jpg';
 import apiaryFrameImg from '../assets/images/apiary_honeycomb_hives_craft_1795431311283.jpg';
 import trustCertImg from '../assets/images/trust_certificate_honey_gold_1795430456485.jpg';
 import apiaryCoverImg from '../assets/images/cover_madinah_honey_gold_1795430455728.jpg';
-import faqHoneyImg from '../assets/images/faq_honey_clarity_visual_1795430455710.jpg';
 import cleanedLogoImg from '../assets/images/cleaned_apiary_logo_1795612732935.jpg';
 import enchantedBackdropImg from '../assets/images/enchanted_honey_backdrop_1795612734466.jpg';
-import enchantedShowcaseImg from '../assets/images/enchanted_honey_showcase_1795612735176.jpg';
 import type { FaqItem, Product, ReviewItem, StoreState, WeightKey } from '../types';
 
 export const STORAGE_KEY = 'amna_honey_store_v1';
@@ -17,14 +16,14 @@ export const BENEFICIARY_NAME = 'آمنة عبد الكريم';
 
 export const CLEANED_APIARY_LOGO = cleanedLogoImg;
 export const ENCHANTED_BACKDROP_IMAGE = enchantedBackdropImg;
-export const ENCHANTED_SHOWCASE_IMAGE = enchantedShowcaseImg;
+export const ENCHANTED_SHOWCASE_IMAGE = duoTreeJarsImg;
 
 export const HERO_SHOWCASE_IMAGE = enchantedBackdropImg || heroWideImg;
 export const APIARY_FRAME_IMAGE = apiaryFrameImg;
 export const TRUST_CERT_IMAGE = trustCertImg;
 export const APIARY_ENVIRONMENT_IMAGE = apiaryCoverImg;
-export const FAQ_HONEY_IMAGE = enchantedShowcaseImg || faqHoneyImg;
-export const DIARY_DEFAULT_IMAGE = apiaryCoverImg;
+export const FAQ_HONEY_IMAGE = duoTreeJarsImg;
+export const DIARY_DEFAULT_IMAGE = samraJarImg;
 
 export const WEIGHT_LABELS: Record<WeightKey, string> = {
   quarter: 'ربع كيلو',
@@ -91,9 +90,14 @@ const OLD_ASSET_MARKERS = [
   'product_sidr_honey',
   'product_talh_honey',
   'product_samra_honey',
+  'product_sidr_jar_',
+  'product_talh_jar_',
+  'product_samra_jar_',
   'products_trio_gold_brown',
   'diary_apiary_hives',
   'diary_honey_harvest',
+  'faq_honey_clarity_visual_',
+  'enchanted_honey_showcase_',
 ];
 
 export const defaultStoreState: StoreState = {
@@ -184,16 +188,16 @@ export const defaultStoreState: StoreState = {
       tag: 'فرز وتعبئة',
       title: 'فرز العسل وتعبئته بأمانة',
       desc: 'الاهتمام بنظافة الأدوات والعبوات والحفاظ على خصائص العسل الطبيعية دون تدخل يخل بجودته.',
-      image: sidrJarImg,
-      imageAlt: 'فرز وتعبئة عسل سدرة المدينة المنورة وعسل طلح أصلي بأمانة',
+      image: duoTreeJarsImg,
+      imageAlt: 'عبوات عسل مناحل بنت المدينة المعبأة بأمانة ونقاء',
     },
     {
       id: 'd3',
       tag: 'خدمة العملاء',
       title: 'تجهيز الطلبات وتوصيلها بسرعة',
       desc: 'توصيل فوري داخل المدينة المنورة مع إمكانية الدفع عند الاستلام، وشحن منظم لخارج المدينة.',
-      image: faqHoneyImg,
-      imageAlt: 'تجهيز عبوات عسل سمرة طبيعي وعسل سدرة للتوصيل الفوري',
+      image: samraJarImg,
+      imageAlt: 'تجهيز عبوات عسل مناحل بنت المدينة للتوصيل الفوري',
     },
   ],
 };
