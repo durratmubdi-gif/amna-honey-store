@@ -1,4 +1,4 @@
-import { Bot, Loader2, Send, Sparkles, X } from 'lucide-react';
+import { Loader2, Send, X } from 'lucide-react';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import {
   BENEFICIARY_NAME,
@@ -6,6 +6,79 @@ import {
   formatDisplayPhone,
 } from '../data/defaultStore';
 import type { ChatMessage, StoreState } from '../types';
+
+function BeeIcon({
+  className = 'w-4 h-4',
+  animated = false,
+}: {
+  className?: string;
+  animated?: boolean;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={`${className} ${animated ? 'animate-bee-hover' : ''}`}
+    >
+      {/* Translucent top wings */}
+      <g className={animated ? 'animate-bee-wing' : ''}>
+        <ellipse
+          cx="9"
+          cy="7.5"
+          rx="4"
+          ry="2.6"
+          transform="rotate(-25 9 7.5)"
+          fill="#FFF8E6"
+          fillOpacity="0.92"
+          stroke="#F6D598"
+          strokeWidth="1"
+        />
+        <ellipse
+          cx="15"
+          cy="7.5"
+          rx="4"
+          ry="2.6"
+          transform="rotate(25 15 7.5)"
+          fill="#FFF8E6"
+          fillOpacity="0.92"
+          stroke="#F6D598"
+          strokeWidth="1"
+        />
+      </g>
+      {/* Bee golden body */}
+      <ellipse
+        cx="12"
+        cy="14"
+        rx="5.5"
+        ry="4.2"
+        fill="#F7C242"
+        stroke="#331B16"
+        strokeWidth="1.4"
+      />
+      {/* Honey-dark stripes */}
+      <path
+        d="M10 10.2V17.8M13.5 10V18"
+        stroke="#331B16"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      {/* Head & antennae */}
+      <circle cx="17.8" cy="13.5" r="2.1" fill="#331B16" />
+      <path
+        d="M18.6 11.6C19.3 10.4 20.2 9.8 21 9.8M19.5 12.1C20.4 11.6 21.3 11.6 21.8 11.9"
+        stroke="#FFF8E6"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      {/* Stinger */}
+      <path
+        d="M6.5 14L4.3 14.3L6.5 15"
+        fill="#331B16"
+      />
+    </svg>
+  );
+}
 
 interface HoneyAssistantProps {
   store: StoreState;
@@ -205,14 +278,12 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
       <button
         type="button"
         onClick={() => setIsOpen((v) => !v)}
-        aria-label="المساعد الذكي للعسل"
-        className="fixed bottom-[4.25rem] md:bottom-4 right-4 z-40 inline-flex items-center gap-2 min-h-[44px] px-4 py-2 rounded-full bg-emeraldDeep text-creamBase border border-honeyGold/50 shadow-luxury hover:scale-[1.03] transition cursor-pointer"
+        aria-label="اسأل عن العسل"
+        title="اسأل عن العسل"
+        className="fixed bottom-[4.25rem] md:bottom-5 right-4 z-40 w-14 h-14 rounded-full glass-twilight border border-[#F5D38C]/75 shadow-luxury flex items-center justify-center hover:scale-105 active:scale-95 transition cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5D38C]"
       >
-        <span className="w-7 h-7 rounded-full bg-gradient-to-br from-honeyGold to-honeyLight text-white flex items-center justify-center">
-          <Sparkles className="w-3.5 h-3.5" />
-        </span>
-        <span className="text-xs sm:text-sm font-extrabold whitespace-nowrap">
-          اسأل عن العسل
+        <span className="w-11 h-11 rounded-full btn-honey-glow flex items-center justify-center">
+          <BeeIcon className="w-7 h-7" animated />
         </span>
       </button>
 
@@ -222,7 +293,7 @@ export function HoneyAssistant({ store }: HoneyAssistantProps) {
           <div className="bg-emeraldDeep text-creamBase px-4 py-3.5 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-white/15 border border-white/25 flex items-center justify-center text-[#FDF3D0]">
-                <Bot className="w-5 h-5" />
+                <BeeIcon className="w-5 h-5" />
               </div>
               <div>
                 <div className="text-sm font-extrabold text-white">

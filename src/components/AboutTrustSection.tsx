@@ -36,24 +36,24 @@ export function AboutTrustSection() {
   return (
     <section
       id="about"
-      className="py-16 sm:py-24 bg-creamCard border-b border-emeraldDeep/15"
+      className="py-16 sm:py-24 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Descriptive Text + Core Values */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <p className="text-xs sm:text-sm font-bold text-honeyGold">
+              <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
                 عن المنحل والثقة الرسمية
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark leading-snug">
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] leading-snug drop-shadow-xs">
                 من نحن — قصة تبدأ من خلية وتصل إلى مائدتك
               </h2>
-              <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
+              <p className="text-sm sm:text-base text-[#F7E8D6] leading-relaxed">
                 في قلب المدينة المنورة، تُشرف النحّالة{' '}
-                <strong className="text-inkDark">آمنة عبد الكريم</strong> ميدانياً على
+                <strong className="text-[#FFF9F2]">آمنة عبد الكريم</strong> ميدانياً على
                 خلايا النحل في مواسم التزهير الطبيعية، برعاية أمينة وترخيص رسمي معتمد
-                من <strong className="text-inkDark">وزارة البيئة والمياه والزراعة</strong>{' '}
+                من <strong className="text-[#FFF9F2]">وزارة البيئة والمياه والزراعة</strong>{' '}
                 لضمان وصول عسل بلدي صافي وموثوق إلى كل بيت.
               </p>
             </div>
@@ -64,7 +64,7 @@ export function AboutTrustSection() {
                 return (
                   <div
                     key={val.id}
-                    className="rounded-xl bg-creamBase border border-emeraldDeep/15 p-4 space-y-1.5 shadow-sm"
+                    className="rounded-2xl glass-enchanted p-4 space-y-1.5"
                   >
                     <div className="flex items-center gap-2 font-display font-bold text-sm sm:text-base text-inkDark">
                       <Icon className="w-4 h-4 text-honeyGold shrink-0" />
@@ -76,7 +76,7 @@ export function AboutTrustSection() {
               })}
             </div>
 
-            <div className="rounded-xl bg-white border border-emeraldDeep/15 p-4 flex items-center gap-3 text-xs sm:text-sm text-inkDark">
+            <div className="rounded-2xl glass-enchanted p-4 flex items-center gap-3 text-xs sm:text-sm text-inkDark">
               <Award className="w-5 h-5 text-honeyGold shrink-0" />
               <span>
                 <strong>الجهة الصادرة للترخيص:</strong> وزارة البيئة والمياه والزراعة —
@@ -85,9 +85,9 @@ export function AboutTrustSection() {
             </div>
           </div>
 
-          {/* Visual Side: Non-Human Apiary Honeycomb Frame + Official License Side by Side */}
+          {/* Visual Side: Apiary Honeycomb Frame + Official License Side by Side */}
           <div className="lg:col-span-6 grid sm:grid-cols-2 gap-5 items-stretch">
-            <div className="rounded-xl overflow-hidden border border-emeraldDeep/15 bg-white shadow-sm flex flex-col">
+            <div className="rounded-2xl overflow-hidden glass-enchanted flex flex-col">
               <div className="aspect-[4/3] sm:aspect-auto sm:flex-1 overflow-hidden">
                 <ResilientImage
                   src={APIARY_FRAME_IMAGE}
@@ -97,7 +97,7 @@ export function AboutTrustSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4 border-t border-emeraldDeep/10 bg-creamBase">
+              <div className="p-4 border-t border-[#DFB27D]/45 bg-[#FFF7EE]/85">
                 <p className="font-display text-sm font-bold text-inkDark">
                   خلايا وإنتاج المنحل
                 </p>
@@ -107,7 +107,7 @@ export function AboutTrustSection() {
               </div>
             </div>
 
-            <div className="rounded-xl overflow-hidden border border-emeraldDeep/15 bg-white shadow-sm flex flex-col">
+            <div className="rounded-2xl overflow-hidden glass-enchanted flex flex-col">
               <div className="aspect-[4/3] sm:aspect-auto sm:flex-1 overflow-hidden">
                 <ResilientImage
                   src={TRUST_CERT_IMAGE}
@@ -117,7 +117,7 @@ export function AboutTrustSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4 border-t border-emeraldDeep/10 bg-creamBase">
+              <div className="p-4 border-t border-[#DFB27D]/45 bg-[#FFF7EE]/85">
                 <p className="font-display text-sm font-bold text-inkDark">
                   الترخيص الرسمي المعتمد
                 </p>

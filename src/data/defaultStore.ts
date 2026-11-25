@@ -6,17 +6,24 @@ import apiaryFrameImg from '../assets/images/apiary_honeycomb_hives_craft_179543
 import trustCertImg from '../assets/images/trust_certificate_honey_gold_1795430456485.jpg';
 import apiaryCoverImg from '../assets/images/cover_madinah_honey_gold_1795430455728.jpg';
 import faqHoneyImg from '../assets/images/faq_honey_clarity_visual_1795430455710.jpg';
+import cleanedLogoImg from '../assets/images/cleaned_apiary_logo_1795612732935.jpg';
+import enchantedBackdropImg from '../assets/images/enchanted_honey_backdrop_1795612734466.jpg';
+import enchantedShowcaseImg from '../assets/images/enchanted_honey_showcase_1795612735176.jpg';
 import type { FaqItem, Product, ReviewItem, StoreState, WeightKey } from '../types';
 
 export const STORAGE_KEY = 'amna_honey_store_v1';
 export const DEFAULT_IBAN = 'SA09 8000 0272 6080 1030 2900';
 export const BENEFICIARY_NAME = 'آمنة عبد الكريم';
 
-export const HERO_SHOWCASE_IMAGE = heroWideImg;
+export const CLEANED_APIARY_LOGO = cleanedLogoImg;
+export const ENCHANTED_BACKDROP_IMAGE = enchantedBackdropImg;
+export const ENCHANTED_SHOWCASE_IMAGE = enchantedShowcaseImg;
+
+export const HERO_SHOWCASE_IMAGE = enchantedBackdropImg || heroWideImg;
 export const APIARY_FRAME_IMAGE = apiaryFrameImg;
 export const TRUST_CERT_IMAGE = trustCertImg;
 export const APIARY_ENVIRONMENT_IMAGE = apiaryCoverImg;
-export const FAQ_HONEY_IMAGE = faqHoneyImg;
+export const FAQ_HONEY_IMAGE = enchantedShowcaseImg || faqHoneyImg;
 export const DIARY_DEFAULT_IMAGE = apiaryCoverImg;
 
 export const WEIGHT_LABELS: Record<WeightKey, string> = {

@@ -31,7 +31,7 @@ export function FeaturesSection() {
   return (
     <section
       aria-label="مميزاتنا"
-      className="py-12 sm:py-16 bg-creamCard border-b border-emeraldDeep/15"
+      className="py-12 sm:py-16 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -40,9 +40,9 @@ export function FeaturesSection() {
             return (
               <div
                 key={feat.id}
-                className="rounded-xl bg-creamBase border border-emeraldDeep/15 p-5 shadow-sm flex flex-col gap-2.5"
+                className="rounded-2xl glass-enchanted p-5 flex flex-col gap-2.5"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#F6F0E0] text-honeyGold flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#FCEBD6] border border-[#E5B87B]/60 text-honeyGold flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h2 className="font-display text-base sm:text-lg font-bold text-inkDark leading-snug">

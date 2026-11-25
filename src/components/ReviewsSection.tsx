@@ -5,17 +5,17 @@ export function ReviewsSection() {
   return (
     <section
       id="reviews"
-      className="py-16 sm:py-24 bg-creamBase border-b border-emeraldDeep/15"
+      className="py-16 sm:py-24 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2.5">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             تجارب عملائنا الكرام
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             كلمات قالوها عنا — ثقة عملائنا أغلى ما نملك
           </h2>
-          <p className="text-sm sm:text-base text-inkMuted">
+          <p className="text-sm sm:text-base text-[#F7E8D6]">
             آراء حقيقية لعملاء جرّبوا عسل السدرة والطلح والسمرة داخل المدينة المنورة
             وخارجها.
           </p>
@@ -25,7 +25,7 @@ export function ReviewsSection() {
           {CUSTOMER_REVIEWS.map((review) => (
             <blockquote
               key={review.id}
-              className="rounded-xl bg-creamCard border border-emeraldDeep/15 p-6 shadow-sm flex flex-col justify-between gap-5"
+              className="rounded-2xl glass-enchanted p-6 flex flex-col justify-between gap-5"
             >
               <div className="space-y-3">
                 <Quote className="w-5 h-5 text-honeyGold" aria-hidden="true" />
@@ -34,7 +34,7 @@ export function ReviewsSection() {
                 </p>
               </div>
 
-              <footer className="pt-4 border-t border-emeraldDeep/10 text-xs sm:text-sm space-y-0.5">
+              <footer className="pt-4 border-t border-[#DFB27D]/45 text-xs sm:text-sm space-y-0.5">
                 <div className="font-display font-bold text-inkDark">
                   {review.author}
                 </div>

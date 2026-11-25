@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Approved Unified Honey Gold, Natural Brown & Warm Cream Palette */
-  --color-emeraldDeep: #8B5A2B;
-  --color-emeraldSoft: #9F6F42;
-  --color-honeyGold: #B8860B;
-  --color-honeyLight: #C89B2D;
-  --color-creamBase: #FFFEF9;
-  --color-creamCard: #F9F6ED;
-  --color-inkDark: #2C2C2C;
-  --color-inkMuted: #666666;
+  /* Enchanted Rose-Gold, Twilight Plum & Warm Honey Palette (matching reference design) */
+  --color-emeraldDeep: #5C3328;
+  --color-emeraldSoft: #7A473A;
+  --color-honeyGold: #9C6214;
+  --color-honeyLight: #C88A2E;
+  --color-creamBase: #FFF9F2;
+  --color-creamCard: #FCEEE3;
+  --color-inkDark: #331B16;
+  --color-inkMuted: #6B4A41;
 
   --font-display: "Tajawal", system-ui, -apple-system, sans-serif;
   --font-sans: "Noto Naskh Arabic", "Tajawal", system-ui, sans-serif;
 
-  --shadow-luxury: 0 10px 28px -10px rgba(139, 90, 43, 0.14);
-  --shadow-goldGlow: 0 8px 20px -6px rgba(184, 134, 11, 0.34);
+  --shadow-luxury: 0 14px 34px -10px rgba(58, 28, 28, 0.28);
+  --shadow-goldGlow: 0 8px 22px -6px rgba(184, 123, 36, 0.45);
 }
 
 html {
@@ -24,8 +24,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #FFFEF9;
-  color: #2C2C2C;
+  background-color: #3D252C;
+  color: #331B16;
   overflow-x: hidden;
 }
 
@@ -36,6 +36,211 @@ h1, h2, h3, .font-display {
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+/* Frosted Pearl-Rose Glass Surface matching the reference UI cards */
+.glass-enchanted {
+  background-color: rgba(255, 248, 241, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(246, 213, 166, 0.72);
+  box-shadow:
+    0 12px 32px -10px rgba(54, 24, 24, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+/* Subtle Soft Frosted Sub-Surface */
+.glass-enchanted-soft {
+  background-color: rgba(253, 242, 231, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(235, 194, 142, 0.6);
+}
+
+/* Dark Twilight Rose-Plum Glass Header/Bar */
+.glass-twilight {
+  background-color: rgba(56, 32, 38, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(243, 213, 152, 0.28);
+}
+
+/* Luminous Honey Gold CTA Button Gradient with WCAG AA Contrast */
+.btn-honey-glow {
+  background-image: linear-gradient(to left, #8E5614, #A96D1E, #C5862B);
+  border: 1px solid rgba(255, 232, 189, 0.55);
+  box-shadow: 0 8px 22px -6px rgba(169, 109, 30, 0.52);
+}
+
+.btn-honey-glow:hover {
+  filter: brightness(1.07);
+}
+
+/* Enchanted Background Animations (GPU compositor-only: transform & opacity) */
+@keyframes honeyStreamFlow {
+  0% {
+    transform: translate3d(0, -35%, 0) scaleY(0.95);
+    opacity: 0.25;
+  }
+  45% {
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(0, 45%, 0) scaleY(1.08);
+    opacity: 0.15;
+  }
+}
+
+@keyframes honeyDropFall {
+  0% {
+    transform: translate3d(0, -10px, 0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(0, 150px, 0) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes honeyPoolRipple {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.65);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.65);
+    opacity: 0;
+  }
+}
+
+@keyframes palaceGlowPulse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.96);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.06);
+    opacity: 0.95;
+  }
+}
+
+@keyframes flowerSwaySlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-3.2deg);
+  }
+  50% {
+    transform: translate3d(4px, -3px, 0) rotate(3.4deg);
+  }
+}
+
+@keyframes flowerSwayAlt {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(2.8deg);
+  }
+  50% {
+    transform: translate3d(-4px, -4px, 0) rotate(-3.5deg);
+  }
+}
+
+@keyframes petalDrift {
+  0% {
+    transform: translate3d(0, -12px, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.88;
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(38px, 140px, 0) rotate(135deg) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes butterflyFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-4deg) scale(1);
+  }
+  33% {
+    transform: translate3d(10px, -12px, 0) rotate(5deg) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-8px, -6px, 0) rotate(-2deg) scale(0.96);
+  }
+}
+
+.animate-honey-stream {
+  animation: honeyStreamFlow 3.2s linear infinite;
+}
+
+.animate-honey-stream-slow {
+  animation: honeyStreamFlow 4.4s linear infinite;
+}
+
+.animate-honey-drop {
+  animation: honeyDropFall 2.8s ease-in infinite;
+}
+
+.animate-honey-ripple {
+  animation: honeyPoolRipple 3.2s ease-out infinite;
+}
+
+.animate-palace-glow {
+  animation: palaceGlowPulse 4s ease-in-out infinite;
+}
+
+.animate-flower-sway {
+  animation: flowerSwaySlow 6.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-flower-sway-alt {
+  animation: flowerSwayAlt 7.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-petal-drift {
+  animation: petalDrift 9s ease-in-out infinite;
+}
+
+.animate-butterfly-float {
+  animation: butterflyFloat 7.2s ease-in-out infinite;
+}
+
+@keyframes beeHover {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) rotate(3deg);
+  }
+}
+
+@keyframes beeWingFlutter {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.55) scaleX(1.06);
+  }
+}
+
+.animate-bee-hover {
+  animation: beeHover 2.4s ease-in-out infinite;
+}
+
+.animate-bee-wing {
+  animation: beeWingFlutter 0.22s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: bottom center;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -54,10 +259,10 @@ h1, h2, h3, .font-display {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F6F0E0;
+  background: #4B2E35;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C89B2D;
+  background: #C88A2E;
   border-radius: 9999px;
 }

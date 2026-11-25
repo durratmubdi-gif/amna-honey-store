@@ -10,14 +10,14 @@ export function LegalPage({ mode, onBackHome, onSwitchMode }: LegalPageProps) {
   const isPrivacy = mode === 'privacy';
 
   return (
-    <section className="py-12 sm:py-20 bg-creamBase min-h-[70vh]">
+    <section className="py-12 sm:py-20 min-h-[70vh]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Breadcrumb & Page Switch */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-emeraldDeep/15 pb-5">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#F3D598]/25 pb-5">
           <button
             type="button"
             onClick={onBackHome}
-            className="inline-flex items-center gap-2 min-h-[42px] px-4 py-2 rounded-lg bg-white border border-emeraldDeep/20 text-sm font-bold text-inkDark hover:border-honeyGold transition cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-2 min-h-[42px] px-4 py-2 rounded-xl glass-enchanted text-sm font-bold text-inkDark hover:border-honeyGold transition cursor-pointer whitespace-nowrap"
           >
             <ArrowRight className="w-4 h-4 shrink-0" />
             <span>العودة إلى الرئيسية</span>
@@ -30,10 +30,10 @@ export function LegalPage({ mode, onBackHome, onSwitchMode }: LegalPageProps) {
                 e.preventDefault();
                 onSwitchMode('privacy');
               }}
-              className={`min-h-[40px] px-4 py-2 rounded-lg text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition whitespace-nowrap ${
+              className={`min-h-[40px] px-4 py-2 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition whitespace-nowrap ${
                 isPrivacy
-                  ? 'bg-emeraldDeep text-white'
-                  : 'bg-creamCard border border-emeraldDeep/15 text-inkDark hover:border-honeyGold'
+                  ? 'btn-honey-glow text-white'
+                  : 'glass-enchanted text-inkDark hover:border-honeyGold'
               }`}
             >
               <Shield className="w-4 h-4 shrink-0" />
@@ -46,10 +46,10 @@ export function LegalPage({ mode, onBackHome, onSwitchMode }: LegalPageProps) {
                 e.preventDefault();
                 onSwitchMode('terms');
               }}
-              className={`min-h-[40px] px-4 py-2 rounded-lg text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition whitespace-nowrap ${
+              className={`min-h-[40px] px-4 py-2 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 transition whitespace-nowrap ${
                 !isPrivacy
-                  ? 'bg-emeraldDeep text-white'
-                  : 'bg-creamCard border border-emeraldDeep/15 text-inkDark hover:border-honeyGold'
+                  ? 'btn-honey-glow text-white'
+                  : 'glass-enchanted text-inkDark hover:border-honeyGold'
               }`}
             >
               <FileText className="w-4 h-4 shrink-0" />
@@ -60,7 +60,7 @@ export function LegalPage({ mode, onBackHome, onSwitchMode }: LegalPageProps) {
 
         {/* Dedicated Legal Document Container */}
         {isPrivacy ? (
-          <article className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm p-6 sm:p-10 space-y-6">
+          <article className="rounded-2xl glass-enchanted p-6 sm:p-10 space-y-6">
             <header className="space-y-2 border-b border-emeraldDeep/10 pb-5">
               <p className="text-xs sm:text-sm font-bold text-honeyGold">
                 مناحل آمنة عبد الكريم · المدينة المنورة
@@ -123,7 +123,7 @@ export function LegalPage({ mode, onBackHome, onSwitchMode }: LegalPageProps) {
             </div>
           </article>
         ) : (
-          <article className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm p-6 sm:p-10 space-y-6">
+          <article className="rounded-2xl glass-enchanted p-6 sm:p-10 space-y-6">
             <header className="space-y-2 border-b border-emeraldDeep/10 pb-5">
               <p className="text-xs sm:text-sm font-bold text-honeyGold">
                 مناحل آمنة عبد الكريم · المدينة المنورة

@@ -32,23 +32,23 @@ export function ProductsSection({
   return (
     <section
       id="products"
-      className="py-16 sm:py-24 bg-creamBase border-b border-emeraldDeep/15"
+      className="py-16 sm:py-24 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             منتجات مناحل آمنة عبد الكريم
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             تشكيلة عسلنا الطبيعي — اختر نوعك المفضل
           </h2>
-          <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F7E8D6] leading-relaxed">
             ثلاثة أصناف أصيلة بأسعار واضحة وموحدة، ومعبأة بعناية لتحفظ القوام واللون
             والنكهة الطبيعية.
           </p>
         </div>
 
-        {/* 3 Uniform Side-by-Side Product Cards */}
+        {/* 3 Uniform Side-by-Side Frosted Glass Product Cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {products.map((prod) => {
             const currentWeight: WeightKey = selectedWeights[prod.id] || 'kilo';
@@ -63,11 +63,11 @@ export function ProductsSection({
             return (
               <article
                 key={prod.id}
-                className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-luxury"
+                className="rounded-2xl glass-enchanted overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div>
                   {/* Uniform 4:3 Studio Product Image */}
-                  <div className="aspect-[4/3] overflow-hidden bg-creamCard border-b border-emeraldDeep/10">
+                  <div className="aspect-[4/3] overflow-hidden bg-creamCard border-b border-[#EBC28E]/55">
                     <ResilientImage
                       src={prod.image}
                       alt={prod.imageAlt || prod.name}
@@ -111,16 +111,16 @@ export function ProductsSection({
                               key={wKey}
                               type="button"
                               onClick={() => onSelectWeight(prod.id, wKey)}
-                              className={`min-h-[52px] py-2 px-2 rounded-lg border text-xs font-bold transition cursor-pointer tabular-nums ${
+                              className={`min-h-[52px] py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer tabular-nums ${
                                 active
-                                  ? 'bg-emeraldDeep text-white border-emeraldDeep'
-                                  : 'bg-creamCard text-inkDark border-emeraldDeep/20 hover:border-honeyGold'
+                                  ? 'bg-emeraldDeep text-white border-emeraldDeep shadow-sm'
+                                  : 'bg-[#FFFDF9]/85 text-inkDark border-[#DFB27D]/55 hover:border-honeyGold'
                               }`}
                             >
                               <div className="whitespace-nowrap">{WEIGHT_LABELS[wKey]}</div>
                               <div
                                 className={`text-[11px] mt-0.5 ${
-                                  active ? 'text-[#F3D579]' : 'text-inkMuted'
+                                  active ? 'text-[#F7D78C]' : 'text-inkMuted'
                                 }`}
                               >
                                 {prod.prices[wKey]} ر.س
@@ -133,7 +133,7 @@ export function ProductsSection({
 
                     {/* Expandable Tasting & Usage Specifications */}
                     {prod.details && (
-                      <div className="border-t border-emeraldDeep/10 pt-3">
+                      <div className="border-t border-[#DFB27D]/40 pt-3">
                         <button
                           type="button"
                           aria-expanded={isExpanded}
@@ -148,7 +148,7 @@ export function ProductsSection({
                           />
                         </button>
                         {isExpanded && (
-                          <dl className="mt-2.5 space-y-2 text-xs text-inkMuted bg-creamCard rounded-lg p-3.5 border border-emeraldDeep/10">
+                          <dl className="mt-2.5 space-y-2 text-xs text-inkMuted glass-enchanted-soft rounded-xl p-3.5">
                             <div>
                               <dt className="font-bold text-inkDark inline">
                                 المذاق:{' '}
@@ -189,7 +189,7 @@ export function ProductsSection({
                 </div>
 
                 {/* Action Footer: Price + Add to Cart + Direct WhatsApp Order */}
-                <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-4 space-y-3 border-t border-emeraldDeep/10 bg-creamCard/50">
+                <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-4 space-y-3 border-t border-[#DFB27D]/40 bg-[#FCEEE3]/65">
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <span className="block text-[11px] text-inkMuted">
@@ -205,9 +205,9 @@ export function ProductsSection({
                       type="button"
                       disabled={!prod.available}
                       onClick={() => onAddToCart(prod.id)}
-                      className={`min-h-[44px] px-4 py-2 rounded-lg font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition whitespace-nowrap ${
+                      className={`min-h-[44px] px-4 py-2 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-1.5 transition whitespace-nowrap ${
                         prod.available
-                          ? 'bg-white border border-emeraldDeep/25 text-inkDark hover:border-honeyGold cursor-pointer'
+                          ? 'bg-[#FFFDF9] border border-[#D8A76E]/70 text-inkDark hover:border-honeyGold cursor-pointer'
                           : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                       }`}
                     >
@@ -221,13 +221,13 @@ export function ProductsSection({
                       href={directWhatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full min-h-[46px] px-5 py-2.5 rounded-lg bg-gradient-to-l from-honeyGold to-honeyLight hover:brightness-105 text-white font-display font-bold text-sm inline-flex items-center justify-center gap-2 shadow-sm transition whitespace-nowrap"
+                      className="w-full min-h-[46px] px-5 py-2.5 rounded-xl btn-honey-glow text-white font-display font-bold text-sm inline-flex items-center justify-center gap-2 transition whitespace-nowrap"
                     >
                       <MessageCircle className="w-4 h-4 shrink-0" />
                       <span>اطلب عبر واتساب الآن</span>
                     </a>
                   ) : (
-                    <span className="w-full min-h-[46px] px-5 py-2.5 rounded-lg bg-gray-100 text-gray-400 font-bold text-sm inline-flex items-center justify-center">
+                    <span className="w-full min-h-[46px] px-5 py-2.5 rounded-xl bg-gray-100 text-gray-500 font-bold text-sm inline-flex items-center justify-center">
                       غير متوفر للطلب حالياً
                     </span>
                   )}

@@ -7,16 +7,16 @@ interface DiarySectionProps {
 
 export function DiarySection({ entries }: DiarySectionProps) {
   return (
-    <section id="diary" className="py-16 sm:py-24 bg-creamBase border-b border-emeraldDeep/15">
+    <section id="diary" className="py-16 sm:py-24 border-b border-[#F3D598]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 space-y-2 max-w-2xl">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             صور المنحل والبيئة الطبيعية
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             بيئة المنحل ويوميات العناية بالنحل
           </h2>
-          <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F7E8D6] leading-relaxed">
             لمحات حقيقية من خلايا النحل في مواقعها الطبيعية بمنطقة المدينة المنورة
             ومراحل الفرز والتجهيز.
           </p>
@@ -26,9 +26,9 @@ export function DiarySection({ entries }: DiarySectionProps) {
           {entries.map((item) => (
             <article
               key={item.id}
-              className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm overflow-hidden flex flex-col"
+              className="rounded-2xl glass-enchanted overflow-hidden flex flex-col"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-creamCard">
+              <div className="aspect-[4/3] overflow-hidden bg-creamCard border-b border-[#DFB27D]/40">
                 <ResilientImage
                   src={item.image}
                   alt={item.imageAlt || item.title}

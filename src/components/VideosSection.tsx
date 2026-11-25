@@ -50,17 +50,17 @@ export function VideosSection() {
   return (
     <section
       id="videos-library"
-      className="py-16 sm:py-24 bg-creamCard border-b border-emeraldDeep/15"
+      className="py-16 sm:py-24 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 space-y-2 max-w-2xl">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             شاهد وتعرف عن قرب
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             لقاءات ومقاطع من مناحل آمنة عبد الكريم
           </h2>
-          <p className="text-sm sm:text-base text-inkMuted leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F7E8D6] leading-relaxed">
             تعرّف على رحلة تربية النحل في المدينة المنورة، التراخيص المعتمدة، الفروقات
             بين الأنواع، وطريقة الاستخدام.
           </p>
@@ -70,7 +70,7 @@ export function VideosSection() {
           {VIDEOS.map((video) => (
             <article
               key={video.id}
-              className="rounded-xl bg-white border border-emeraldDeep/15 shadow-sm p-5 flex flex-col justify-between gap-4"
+              className="rounded-2xl glass-enchanted p-5 flex flex-col justify-between gap-4"
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-xs font-bold">
@@ -88,7 +88,7 @@ export function VideosSection() {
                 </p>
               </div>
 
-              <div className="rounded-lg overflow-hidden bg-[#2C2C2C] border border-emeraldDeep/15">
+              <div className="rounded-xl overflow-hidden bg-[#2A171C] border border-[#DFB27D]/45">
                 <video
                   controls
                   preload="metadata"

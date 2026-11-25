@@ -23,25 +23,25 @@ export function DeliverySection({ onShowToast }: DeliverySectionProps) {
   return (
     <section
       id="delivery-info"
-      className="py-16 sm:py-24 bg-[#F6F0E0] border-b border-emeraldDeep/15"
+      className="py-16 sm:py-24 border-b border-[#F3D598]/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             التواصل والدفع والتوصيل
           </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-inkDark">
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             تواصل معنا — طلبك يصل أينما كنت
           </h2>
-          <p className="text-sm sm:text-base text-inkMuted">
+          <p className="text-sm sm:text-base text-[#F7E8D6]">
             توصيل فوري داخل المدينة المنورة، وشحن منظم لكافة مناطق المملكة.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {/* Inside Madinah */}
-          <div className="rounded-xl bg-white border border-emeraldDeep/15 p-6 shadow-sm space-y-3">
-            <div className="w-11 h-11 rounded-lg bg-[#F9F6ED] border border-honeyGold/30 flex items-center justify-center text-honeyGold">
+          <div className="rounded-2xl glass-enchanted p-6 space-y-3">
+            <div className="w-11 h-11 rounded-xl bg-[#FCEBD6] border border-[#E5B87B]/60 flex items-center justify-center text-honeyGold">
               <Zap className="w-5 h-5" />
             </div>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-inkDark">
@@ -57,8 +57,8 @@ export function DeliverySection({ onShowToast }: DeliverySectionProps) {
           </div>
 
           {/* Outside Madinah */}
-          <div className="rounded-xl bg-white border border-emeraldDeep/15 p-6 shadow-sm space-y-3">
-            <div className="w-11 h-11 rounded-lg bg-[#F9F6ED] border border-honeyGold/30 flex items-center justify-center text-honeyGold">
+          <div className="rounded-2xl glass-enchanted p-6 space-y-3">
+            <div className="w-11 h-11 rounded-xl bg-[#FCEBD6] border border-[#E5B87B]/60 flex items-center justify-center text-honeyGold">
               <Truck className="w-5 h-5" />
             </div>
             <h3 className="font-display text-xl sm:text-2xl font-bold text-inkDark">
@@ -74,7 +74,7 @@ export function DeliverySection({ onShowToast }: DeliverySectionProps) {
           </div>
 
           {/* Bank Transfer Frame */}
-          <div className="rounded-xl bg-white border-2 border-honeyGold/50 p-6 shadow-sm space-y-3.5">
+          <div className="rounded-2xl glass-enchanted border-2 border-[#D49D42]/75 p-6 space-y-3.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-extrabold text-honeyGold">
                 مصرف الراجحي
@@ -89,7 +89,7 @@ export function DeliverySection({ onShowToast }: DeliverySectionProps) {
                 <span className="text-inkMuted">الاسم للتحويل:</span>{' '}
                 <strong className="text-inkDark">{BENEFICIARY_NAME}</strong>
               </div>
-              <div className="bg-creamCard p-2.5 rounded-lg border border-emeraldDeep/15 flex items-center justify-between gap-2">
+              <div className="bg-[#FFFDF9]/90 p-2.5 rounded-xl border border-[#DFB27D]/55 flex items-center justify-between gap-2">
                 <code
                   dir="ltr"
                   className="text-xs font-bold text-inkDark select-all tabular-nums"

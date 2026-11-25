@@ -88,24 +88,24 @@ export function QuickOrderSection({
   return (
     <section
       id="quick-order"
-      className="py-14 sm:py-20 bg-creamBase border-b border-emeraldDeep/15"
+      className="py-14 sm:py-20 border-b border-[#F3D598]/20"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-2 mb-8">
-          <p className="text-xs sm:text-sm font-bold text-honeyGold">
+          <p className="text-xs sm:text-sm font-bold text-[#F7D78C]">
             الطلب المباشر عبر واتساب
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-inkDark">
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#FFF9F2] drop-shadow-xs">
             نموذج الطلب السريع
           </h2>
-          <p className="text-sm text-inkMuted">
+          <p className="text-sm text-[#F7E8D6]">
             املأ الحقول التالية لتجهيز طلبك وإرساله مباشرة إلى واتساب المنحل دون تسجيل.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-xl bg-creamCard border border-emeraldDeep/15 shadow-sm p-6 sm:p-8 space-y-5"
+          className="rounded-2xl glass-enchanted p-6 sm:p-8 space-y-5"
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
@@ -122,7 +122,7 @@ export function QuickOrderSection({
                 value={customerName}
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="اكتب اسمك الكريم"
-                className="w-full min-h-[46px] px-4 py-2.5 rounded-lg bg-white border border-emeraldDeep/20 text-sm focus:outline-none focus:border-honeyGold"
+                className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-[#FFFDF9]/95 border border-[#DFB27D]/60 text-sm focus:outline-none focus:border-honeyGold"
               />
             </div>
 
@@ -141,7 +141,7 @@ export function QuickOrderSection({
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}
                 placeholder="05XXXXXXXX"
-                className="w-full min-h-[46px] px-4 py-2.5 rounded-lg bg-white border border-emeraldDeep/20 text-sm text-left tabular-nums focus:outline-none focus:border-honeyGold"
+                className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-[#FFFDF9]/95 border border-[#DFB27D]/60 text-sm text-left tabular-nums focus:outline-none focus:border-honeyGold"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export function QuickOrderSection({
               value={customerAddress}
               onChange={(e) => setCustomerAddress(e.target.value)}
               placeholder="مثال: المدينة المنورة - حي العزيزية"
-              className="w-full min-h-[46px] px-4 py-2.5 rounded-lg bg-white border border-emeraldDeep/20 text-sm focus:outline-none focus:border-honeyGold"
+              className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-[#FFFDF9]/95 border border-[#DFB27D]/60 text-sm focus:outline-none focus:border-honeyGold"
             />
           </div>
 
@@ -176,7 +176,7 @@ export function QuickOrderSection({
                 id="quick-product"
                 value={selectedProduct?.id || 'sidr'}
                 onChange={(e) => setSelectedProductId(e.target.value)}
-                className="w-full min-h-[46px] px-4 py-2.5 rounded-lg bg-white border border-emeraldDeep/20 text-sm font-bold text-inkDark focus:outline-none focus:border-honeyGold"
+                className="w-full min-h-[46px] px-4 py-2.5 rounded-xl bg-[#FFFDF9]/95 border border-[#DFB27D]/60 text-sm font-bold text-inkDark focus:outline-none focus:border-honeyGold"
               >
                 {uniqueProducts.map((prod) => (
                   <option key={prod.id} value={prod.id} disabled={!prod.available}>
@@ -199,10 +199,10 @@ export function QuickOrderSection({
                       key={wKey}
                       type="button"
                       onClick={() => setSelectedWeight(wKey)}
-                      className={`min-h-[46px] px-2 py-2 rounded-lg border text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+                      className={`min-h-[46px] px-2 py-2 rounded-xl border text-xs font-bold transition cursor-pointer whitespace-nowrap ${
                         active
                           ? 'bg-emeraldDeep text-white border-emeraldDeep'
-                          : 'bg-white text-inkDark border-emeraldDeep/20 hover:border-honeyGold'
+                          : 'bg-[#FFFDF9]/90 text-inkDark border-[#DFB27D]/60 hover:border-honeyGold'
                       }`}
                     >
                       {WEIGHT_LABELS[wKey]}
@@ -226,11 +226,11 @@ export function QuickOrderSection({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="وقت التوصيل المفضل أو أي تفاصيل إضافية..."
-              className="w-full px-4 py-2.5 rounded-lg bg-white border border-emeraldDeep/20 text-sm focus:outline-none focus:border-honeyGold"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#FFFDF9]/95 border border-[#DFB27D]/60 text-sm focus:outline-none focus:border-honeyGold"
             />
           </div>
 
-          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-emeraldDeep/15">
+          <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#DFB27D]/45">
             <div className="space-y-1">
               <div className="text-sm">
                 <span className="text-inkMuted">الإجمالي المطلوب:</span>{' '}
@@ -260,7 +260,7 @@ export function QuickOrderSection({
             <div className="flex flex-wrap items-center gap-2.5">
               <button
                 type="submit"
-                className="flex-1 sm:flex-initial min-h-[48px] px-6 py-3 rounded-lg bg-gradient-to-l from-honeyGold to-honeyLight hover:brightness-105 text-white font-display font-bold text-sm inline-flex items-center justify-center gap-2 shadow-goldGlow transition cursor-pointer whitespace-nowrap"
+                className="flex-1 sm:flex-initial min-h-[48px] px-6 py-3 rounded-xl btn-honey-glow text-white font-display font-bold text-sm inline-flex items-center justify-center gap-2 transition cursor-pointer whitespace-nowrap"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
                 <span>اطلب عبر واتساب الآن</span>
@@ -270,7 +270,7 @@ export function QuickOrderSection({
               <button
                 type="button"
                 onClick={handleCopy}
-                className="min-h-[48px] px-4 py-3 rounded-lg bg-white border border-emeraldDeep/20 text-inkDark font-bold text-xs sm:text-sm hover:border-honeyGold transition cursor-pointer inline-flex items-center gap-1.5 whitespace-nowrap"
+                className="min-h-[48px] px-4 py-3 rounded-xl bg-[#FFFDF9] border border-[#D8A76E]/70 text-inkDark font-bold text-xs sm:text-sm hover:border-honeyGold transition cursor-pointer inline-flex items-center gap-1.5 whitespace-nowrap"
               >
                 <Copy className="w-4 h-4 shrink-0" />
                 <span>نسخ الطلب</span>
